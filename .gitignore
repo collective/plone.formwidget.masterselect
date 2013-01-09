@@ -1,0 +1,16 @@
+*.egg-info
+*.mo
+*.pyc
+.installed.cfg
+.mr.developer.cfg
+.project
+.pydevproject
+.settings/
+bin/
+develop-eggs/
+parts/
+src/*
+!src/collective/
+var/
+buildout-cache/
+.svn*

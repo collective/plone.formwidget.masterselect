@@ -1,0 +1,59 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plone.formwidget.masterselect">
+
+    <!-- Include our dependencies -->
+    <includeDependencies package="." />
+
+    <adapter factory=".widget.MasterSelectFieldWidget" />
+    <adapter factory=".widget.MasterSelectBoolFieldWidget" />
+
+    <browser:page
+        for=".interfaces.IMasterSelectWidget"
+        name="masterselect-jsonvalue"
+        class=".widget.MasterSelectJSONValue"
+        permission="cmf.AddPortalContent"
+        />
+
+    <!-- Resources -->
+    <browser:resourceDirectory
+        name="plone.formwidget.masterselect"
+        directory="static"
+        />
+
+    <!-- Widget templates -->
+    <z3c:widgetTemplate
+        mode="input"
+        widget=".interfaces.IMasterSelectWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="select_input.pt"
+        />
+
+    <z3c:widgetTemplate
+        mode="input"
+        widget=".interfaces.IMasterSelectBoolWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="checkbox_input.pt"
+        />
+
+    <!-- Generic Setup -->
+    <gs:registerProfile
+      name="default"
+      title="MasterSelect z3cform Widget"
+      description="MasterSelect widget allow control of 'slave' widgets based on selected value"
+      directory="profiles/default"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+    <gs:registerProfile
+        name="demo"
+        title="MasterSelect z3cform Widget Demo"
+        directory="profiles/demo"
+        description="MasterSelect z3cform widget demonstration type"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+</configure>

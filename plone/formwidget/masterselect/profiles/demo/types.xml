@@ -1,0 +1,3 @@
+<object name="portal_types">
+ <object name="plone.formwidget.masterselect.demo" meta_type="Dexterity FTI" />
+</object>
