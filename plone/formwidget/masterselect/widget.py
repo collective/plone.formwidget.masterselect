@@ -63,14 +63,15 @@ class MasterSelect(object):
         for slave in self.getSlaves():
             if not 'slaveID' in slave:
                 # Try to get it from widget
-                widget =  self.form.widgets.get(slave['name'])
+                widget = self.form.widgets.get(slave['name'])
                 if widget is not None and getattr(widget, 'id', None) is not None:
                     slave['slaveID'] = '#' + widget.id
                 else:
                     # Try our best to create one; won't work for checkboxes, so
                     # better to provide a slaveID in the schema in that case or
-                    # sometimes to icrease the scope beyond the field
-                    slave['slaveID'] = '#form-widgets-%s' % slave['name']
+                    # sometimes to increase the scope beyond the field
+                    prefix = '-'.join(self.id.split('-')[:-1])
+                    slave['slaveID'] = '#%s-%s' % (prefix, slave['name'])
 
             slave['url'] = widgetURL
             slave['masterID'] = '#' + slave.get('masterID', self.id)
@@ -95,8 +96,8 @@ class MasterSelect(object):
             slave.pop('hide_values', None)
             slave.pop('control_param', None)
 
-            settings = { 'masterID': slave['masterID'],
-                         'json': json.dumps(slave)
+            settings = {'masterID': slave['masterID'],
+                        'json': json.dumps(slave)
                        }
             yield js_template % settings
 

@@ -13,7 +13,7 @@ _ = MessageFactory("plone.formwidget.masterselect")
 
 
 class MasterSelectField(Choice):
-    """MasterSelectField that provides addtional properties for widget
+    """MasterSelectField that provides additional properties for widget
     (extends schema.Choice)
     """
 
