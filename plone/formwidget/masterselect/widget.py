@@ -28,14 +28,14 @@ except:
 
 
 BINDERS = dict(
-    vocabulary= "jq('%(masterID)s').bindMasterSlaveVocabulary(%(json)s);",
-    value     = "jq('%(masterID)s').bindMasterSlaveValue(%(json)s);",
-    attr      = "jq('%(masterID)s').bindMasterSlaveAttr(%(json)s);",
-    toggle    = "jq('%(masterID)s').bindMasterSlaveToggle(%(json)s);"
+    vocabulary= "jQuery('%(masterID)s').bindMasterSlaveVocabulary(%(json)s);",
+    value     = "jQuery('%(masterID)s').bindMasterSlaveValue(%(json)s);",
+    attr      = "jQuery('%(masterID)s').bindMasterSlaveAttr(%(json)s);",
+    toggle    = "jQuery('%(masterID)s').bindMasterSlaveToggle(%(json)s);"
 )
 
 JQUERY_ONLOAD = """\
-jq(document).ready(function()
+jQuery(document).ready(function()
 {
 %s
 });
