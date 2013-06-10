@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0-dev (unreleased)
---------------------
+1.0 (2013-06-10)
+----------------
 
 - Replaced jq by jQuery in generated scripts.
   [vincentfretin]
