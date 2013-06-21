@@ -25,7 +25,7 @@
             .empty().html( // Replace all options with new ones
                 populateSelectOptions(data.items)).end()
             .change()
-            .attr('disabled', '');
+            .attr('disabled', false);
     };
     function handleMasterVocabularyChange(event) {
         var value = $.nodeName(this, 'input') ?
@@ -39,7 +39,7 @@
         // values and disable field
         $(slaveID).find('option').slice(event.data.empty_length).remove();
         $(slaveID).change();
-        $(slaveID).closest(':input').attr('disabled', 'disabled');
+        $(slaveID).closest(':input').attr('disabled', true);
 
         // NEW:
         // Need to kill child requests as well
@@ -67,9 +67,9 @@
             masterVocabularyQueue[queuekey].abort();
             delete(masterVocabularyQueue[queuekey]);
         }
-
         if (value != null) {
             if (cache[cachekey] == undefined) {
+
                 masterVocabularyQueue[queuekey] = $.getJSON(event.data.url,
                     { field: this.id, name: name, slaveID: slaveID, masterID: masterID, value: value },
                     function(data) {
@@ -83,14 +83,13 @@
     };
     $.fn.bindMasterSlaveVocabulary = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : false;
-
         // NEW:
         // Disable slave select if empty
         // Only if it's a select field??
         var emptyLength = data.empty_length ? data.empty_length : 0
         var slaveLength = $(data.slaveID)[0].length;
         if (slaveLength <= emptyLength)
-            $(data.slaveID).attr('disabled', 'disabled');
+            $(data.slaveID).attr('disabled', true);
 
         $(this).live('change', data, handleMasterVocabularyChange);
         if (trigger)
@@ -178,7 +177,7 @@
             selector.each(function() { $(this)[ val ? "show" : "hide" ](); });
         //enable toggle
         } else
-            slaveID.closest(':input').attr('disabled', val ? '' : 'disabled');
+            slaveID.closest(':input').attr('disabled', val ? false : true);
     }
     $.fn.bindMasterSlaveToggle = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : true;

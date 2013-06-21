@@ -225,7 +225,9 @@ class MasterSelectJSONValue(BrowserView):
                 widget.terms = None
                 widget.updateTerms()
                 widget.update()
-                responseJSON = {'items': widget.items}
+                # widget may define items as a property or as a method
+                items = widget.items if not callable(widget.items) else widget.items() 
+                responseJSON = {'items': items}
 
                 # disable select box if term length = 'disable_length'
                 #if len(widget.terms) == slave.get('disable_length', None):
