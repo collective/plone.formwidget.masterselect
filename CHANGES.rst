@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.1 (2013-08-26)
 ----------------
 
 - Made compatible with z3c.form 3.0 and jQuery 1.6+.
