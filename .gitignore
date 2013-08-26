@@ -8,6 +8,7 @@
 .settings/
 bin/
 develop-eggs/
+dist/
 parts/
 src/*
 !src/collective/
