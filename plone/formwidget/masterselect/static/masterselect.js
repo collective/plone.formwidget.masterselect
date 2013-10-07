@@ -174,7 +174,7 @@
         // show toggle
         if (action == 'show') {
             var selector = event.data.siblings ? slaveID.parent() : slaveID;
-            selector.each(function() { $(this)[ val ? "show" : "hide" ](); });
+            selector.each(function() { $(this)[ val ? "show" : "hide" ]('fast'); });
         //enable toggle
         } else
             slaveID.closest(':input').attr('disabled', val ? false : true);

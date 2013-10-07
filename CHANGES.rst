@@ -4,7 +4,8 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added a ('fast') jQuery transition on show/hide function.
+  [thomasdesvenain]
 
 
 1.1 (2013-08-26)
