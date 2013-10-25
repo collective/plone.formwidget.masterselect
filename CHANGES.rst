@@ -4,6 +4,10 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Documentation updates. Fix rst error in ``CHANGES.rst``. Add an example
+  to ``README.rst``.
+  [saily]
+
 - Add egg-contained buildout.
   [saily]
 
@@ -36,8 +40,8 @@ Changelog
 
 - Made compatible with z3c.form 3.0 and jQuery 1.6+.
   Note: this version drops compatibility with jQuery 1.4.
-   Please use plone.formwidget.masterselect 1.0 for plone
-   versions < 4.3
+  Please use plone.formwidget.masterselect 1.0 for plone
+  versions < 4.3
 
 
 1.0 (2013-06-10)

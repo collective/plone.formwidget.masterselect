@@ -3,9 +3,65 @@ MasterSelectWidget
 
 This is a z3cform widget based on the orginal n Archetypes widget which
 controls the vocabulary or display of other fields on an edit page. It
-needs to be given information about which fields to control and how to control them.
+needs to be given information about which fields to control and how to control
+them.
 
 Feel free to help edit this document to help expain things better!
+
+
+Example
+=======
+
+For more complex examples see ``demo.py`` in pacakge directory.
+
+::
+    from zope import schema
+    from plone.supermodel import model
+    from plone.formwidget.masterselect import _
+    from plone.formwidget.masterselect import MasterSelectBoolField
+    from plone.formwidget.masterselect import MasterSelectField
+
+
+    class IMasterSelectDemo(model.Schema):
+        """ MasterSelect Demo to demonstrate all options available to
+            use and to allow the test modules a content type to work
+            with.
+        """
+
+        masterField = MasterSelectField(
+            title=_(u"MasterField"),
+            description=_(u"This field controls the vocabulary of slaveField1,"
+                          "the available values in slaveField1 will be equal "
+                          "to the numbers between the selected number and 10. "
+            values=(1, 2, 3, 4, 5, 6),
+            slave_fields=(
+                # Controls the vocab of slaveField1
+                {'name': 'slaveField1',
+                 'action': 'vocabulary',
+                 'vocab_method': getSlaveVocab,
+                 'control_param': 'master',
+                },
+                # Controls the visibility of slaveField1 also
+                {'name': 'slaveField1',
+                 'action': 'hide',
+                 'hide_values': ('6',),
+                 'siblings': True,
+                },
+            ),
+            required=True,
+        )
+
+        slaveField1 = schema.Set(
+            title=_(u"SlaveField1"),
+            description=_(u"This field's vocabulary is controlled by the value "
+                          "selected in masterField. The values available here "
+                          "will be the numbers between the number selected in "
+                          "masterField and 10. The field will be hidden when 6 "
+                          "is selected in the masterField."),
+            value_type=schema.Choice(values=(1, 2, 3, 4, 5, 6)),
+            required=False,
+        )
+
 
 Parameters
 ==========
@@ -13,6 +69,7 @@ Parameters
 All the magic happens in the slave_fields parameter which should be a
 sequence of mappings. Each mapping is a description of a field controlled
 by this master field:
+
 
 name
 ----
@@ -26,6 +83,7 @@ to 'select' (this is the default only for MasterSelectWidget). For
 'value', the widget must be simple enough to change the current value
 using element.value or elem.selectedIndex (StringWidget, SelectionWidget,
 AutoCompleteWidget, maybe others).
+
 
 masterID
 --------
@@ -51,32 +109,37 @@ be used to speicify the exact slave field name to control in the html form.
 Note that this is a jQuery ID selector, so something use something
 like this: #form-widgets-field
 
+
 action
 ------
 
 The type of action to perform on the slave field.  This can be:
 
-        'vocabulary' --
-          which alters the vocabulary of the slave field using an
-          XMLHttpRequest call; 'hide' or 'show' which sets the slave field's
-          visibility style attribute;
-        'enable' or 'disable' --
-          toggle which marks the target widget as enabled or disabled; or
-        'show' or 'hide' --
-          toggle which marks the target widget as show or hide; or
-        'value' --
-          which alters the value of another simple widget (StringWidget) on
-          selection change using an XMLHttpRequest call.
-        'attr' --
-          which alters the value of a DOM element, specified by slaveID
-        'jquery' --
-          * NOT YET IMPLEMENTED *
-          a complete jquery startment that will be sent back to the DOM to be
-          executed.
-      To use the 'vocabulary' action, the
-          slave field must meet the widget requirements stated above. To use
-          the 'enable'/'disable' actions, the field must use a HTML widget
-          that can be enabled/disabled.
+``vocabulary``
+    which alters the vocabulary of the slave field using an
+    XMLHttpRequest call. To use the ``vocabulary`` action, the slave
+    field must meet the widget requirements stated above.
+
+``enable`` or ``disable``
+    toggle which marks the target widget as enabled or disabled; To use the
+    ``enable / disable`` actions, the field must use a HTML widget that can be
+    enabled/disabled.
+
+``show`` or ``hide``
+    toggle which marks the target widget as show or hide.
+
+``value``
+    which alters the value of another simple widget (StringWidget) on
+    selection change using an XMLHttpRequest call.
+
+``attr``
+    which alters the value of a DOM element, specified by slaveID
+
+``jquery``
+    **NOT YET IMPLEMENTED**
+    a complete jquery startment that will be sent back to the DOM to be
+    executed.
+
 
 vocab_method
 ------------
