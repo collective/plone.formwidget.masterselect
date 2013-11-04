@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2 (unreleased)
+1.2 (2013-11-04)
 ----------------
 
 - Added a ('fast') jQuery transition on show/hide function.
