@@ -4,7 +4,8 @@ Changelog
 1.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix bug when masterselect is in a fieldset that is not visible.
+  [cedricmessiant]
 
 
 1.2 (2013-11-04)

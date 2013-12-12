@@ -180,10 +180,29 @@
             slaveID.closest(':input').attr('disabled', val ? false : true);
     }
     $.fn.bindMasterSlaveToggle = function(data) {
+        // test toggle with odd number of slaves
+        var master = $(this);
         var trigger = data.initial_trigger ? data.initial_trigger : true;
-
-        $(this).live('change', data, handleMasterToggle);
-        if (trigger)
-            $(this).trigger('change');
+        master.live('change', data, handleMasterToggle);
+        if (trigger) {
+            var fieldset_id  = master.closest('fieldset').attr('id');
+            fieldset_id = '#' + fieldset_id;
+            if ($(fieldset_id).is(":visible")) {
+                master.change();
+            } else {
+                var props = { position: 'absolute', visibility: 'hidden', display: 'block' };
+                // backup old properties
+                var old_props = {};
+                for (var name in props) {
+                    old_props[name] = $(fieldset_id).css(name);
+                }
+                // change display and execute change on master
+                $(fieldset_id).css(props);
+                master.change();
+                // set back old properties
+                $(fieldset_id).css(old_props);
+            }
+        }
     };
+
 })(jQuery);
