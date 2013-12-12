@@ -180,7 +180,6 @@
             slaveID.closest(':input').attr('disabled', val ? false : true);
     }
     $.fn.bindMasterSlaveToggle = function(data) {
-        // test toggle with odd number of slaves
         var master = $(this);
         var trigger = data.initial_trigger ? data.initial_trigger : true;
         master.live('change', data, handleMasterToggle);
