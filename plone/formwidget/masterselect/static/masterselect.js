@@ -185,10 +185,10 @@
         master.live('change', data, handleMasterToggle);
         if (trigger) {
             var fieldset_id  = master.closest('fieldset').attr('id');
-            fieldset_id = '#' + fieldset_id;
-            if ($(fieldset_id).is(":visible")) {
+            if (fieldset_id === undefined || $(fieldset_id).is(":visible")) {
                 master.change();
             } else {
+                fieldset_id = '#' + fieldset_id;
                 var props = { position: 'absolute', visibility: 'hidden', display: 'block' };
                 // backup old properties
                 var old_props = {};
