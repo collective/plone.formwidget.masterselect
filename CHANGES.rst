@@ -4,6 +4,9 @@ Changelog
 1.3 (unreleased)
 ----------------
 
+- Master select features work when form is loaded in an overlay.
+  [thomasdesvenain]
+
 - Fix bug when masterselect is in a fieldset that is not visible.
   [cedricmessiant]
 

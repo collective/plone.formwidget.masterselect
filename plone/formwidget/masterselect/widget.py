@@ -38,6 +38,17 @@ JQUERY_ONLOAD = """\
 jQuery(document).ready(function()
 {
 %s
+
+jQuery(document).bind('loadInsideOverlay', function(e, pbajax, responseText, errorText, api){
+        var interval_timeline = false;
+        interval_timeline = setInterval(function(){
+            if (jQuery(document).find('.pb-ajax .masterselect-widget').length > 0){
+                clearInterval(interval_timeline);
+                jQuery(pbajax).find('.masterselect-widget').change();
+            }
+        },200);
+
+    });
 });
 """
 
@@ -226,7 +237,7 @@ class MasterSelectJSONValue(BrowserView):
                 widget.updateTerms()
                 widget.update()
                 # widget may define items as a property or as a method
-                items = widget.items if not callable(widget.items) else widget.items() 
+                items = widget.items if not callable(widget.items) else widget.items()
                 responseJSON = {'items': items}
 
                 # disable select box if term length = 'disable_length'
