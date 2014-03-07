@@ -39,15 +39,16 @@ jQuery(document).ready(function()
 {
 %s
 
-jQuery(document).bind('loadInsideOverlay', function(e, pbajax, responseText, errorText, api){
-        var interval_timeline = false;
-        interval_timeline = setInterval(function(){
-            if (jQuery(document).find('.pb-ajax .masterselect-widget').length > 0){
+    jQuery(document).bind('loadInsideOverlay', function(e, pbajax, responseText, errorText, api){
+        var interval_timeline = setInterval(function(){
+            var el = jQuery(pbajax);
+            var o = el.closest('.overlay-ajax');
+            var pbo = o.data('pbo');
+            if (jQuery('#' + pbo.nt + ' .pb-ajax').length > 0){
                 clearInterval(interval_timeline);
-                jQuery(pbajax).find('.masterselect-widget').change();
+                el.find('.masterselect-widget').change();
             }
         },200);
-
     });
 });
 """
