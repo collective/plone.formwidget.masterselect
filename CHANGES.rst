@@ -10,6 +10,9 @@ Changelog
 - Fix bug when masterselect is in a fieldset that is not visible.
   [cedricmessiant]
 
+- Add master select radio widget and ability to specify a master Selector
+  instead of masterID [ebrehault]
+
 
 1.2 (2013-11-04)
 ----------------

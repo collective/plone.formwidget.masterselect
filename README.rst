@@ -36,6 +36,13 @@ document.  Normally you will only need to set this for checkbox masters
 since their id has a -0 added like this: #form-widgets-checkboxfield-0.
 Note that this is a jQuery ID selector.
 
+masterSelector
+--------------
+
+This is optional and will default to master ID if not defined.
+It has the same usage as masterID but allows to specify any JQuery selector (not
+just an ID).
+
 slaveID
 -------
 
