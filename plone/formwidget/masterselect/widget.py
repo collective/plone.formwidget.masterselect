@@ -10,14 +10,16 @@ from zope.i18n import translate
 
 from z3c.form import interfaces
 from z3c.form.widget import FieldWidget
-from z3c.form.browser import select, checkbox
+from z3c.form.browser import select, checkbox, radio
 
 from Products.Five.browser import BrowserView
 
 from plone.formwidget.masterselect.interfaces import IMasterSelectField
 from plone.formwidget.masterselect.interfaces import IMasterSelectBoolField
+from plone.formwidget.masterselect.interfaces import IMasterSelectRadioField
 from plone.formwidget.masterselect.interfaces import IMasterSelectWidget
 from plone.formwidget.masterselect.interfaces import IMasterSelectBoolWidget
+from plone.formwidget.masterselect.interfaces import IMasterSelectRadioWidget
 
 try:
     # python 2.6
@@ -86,7 +88,10 @@ class MasterSelect(object):
                     slave['slaveID'] = '#%s-%s' % (prefix, slave['name'])
 
             slave['url'] = widgetURL
-            slave['masterID'] = '#' + slave.get('masterID', self.id)
+            slave['masterID'] = slave.get(
+                'masterSelector',
+                '#' + slave.get('masterID', self.id)
+                )
             slave['siblings'] = slave.get('siblings', False)
             slave['empty_length'] = int(slave.get('empty_length', 0))
             slave.setdefault('control_param', 'master_value')
@@ -134,6 +139,14 @@ class MasterSelectBoolWidget(checkbox.SingleCheckBoxWidget, MasterSelect):
     klass = u'masterselect-widget'
 
 
+class MasterSelectRadioWidget(radio.RadioWidget, MasterSelect):
+    """MasterSelectRadioWidget
+    """
+    implements(IMasterSelectRadioWidget)
+
+    klass = u'masterselect-widget'
+
+
 @implementer(interfaces.IFieldWidget)
 @adapter(IMasterSelectField, interfaces.IFormLayer)
 def MasterSelectFieldWidget(field, request):
@@ -144,6 +157,12 @@ def MasterSelectFieldWidget(field, request):
 @adapter(IMasterSelectBoolField, interfaces.IFormLayer)
 def MasterSelectBoolFieldWidget(field, request):
     return FieldWidget(field, MasterSelectBoolWidget(request))
+
+
+@implementer(interfaces.IFieldWidget)
+@adapter(IMasterSelectRadioField, interfaces.IFormLayer)
+def MasterSelectRadioFieldWidget(field, request):
+    return FieldWidget(field, MasterSelectRadioWidget(request))
 
 
 class MasterSelectJSONValue(BrowserView):

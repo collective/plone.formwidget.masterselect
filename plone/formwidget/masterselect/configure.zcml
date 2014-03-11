@@ -10,6 +10,7 @@
 
     <adapter factory=".widget.MasterSelectFieldWidget" />
     <adapter factory=".widget.MasterSelectBoolFieldWidget" />
+    <adapter factory=".widget.MasterSelectRadioFieldWidget" />
 
     <browser:page
         for=".interfaces.IMasterSelectWidget"
@@ -37,6 +38,13 @@
         widget=".interfaces.IMasterSelectBoolWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="checkbox_input.pt"
+        />
+
+    <z3c:widgetTemplate
+        mode="input"
+        widget=".interfaces.IMasterSelectRadioWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="radio_input.pt"
         />
 
     <!-- Generic Setup -->

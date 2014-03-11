@@ -15,6 +15,11 @@ class IMasterSelectBoolWidget(Interface):
     """
 
 
+class IMasterSelectRadioWidget(Interface):
+    """Marker interface for the radio button widget.
+    """
+
+
 class IMasterSelectField(IObject):
     """
     Additional Fields for MasterSelect
@@ -32,3 +37,7 @@ class IMasterSelectBoolField(IMasterSelectField):
     Additional Fields for MasterSelect
     """
 
+class IMasterSelectRadioField(IMasterSelectField):
+    """
+    MasterSelect radio button widget
+    """
