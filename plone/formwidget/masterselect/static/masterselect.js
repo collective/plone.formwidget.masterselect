@@ -28,7 +28,7 @@
             .attr('disabled', false);
     };
     function handleMasterVocabularyChange(event) {
-        var value = $.nodeName(this, 'input') ?
+        var value = $(this).attr('type') == 'checkbox' ?
             '' + this.checked : $(this).val();
         var slaveID = event.data.slaveID;
         var name = event.data.name;
@@ -55,7 +55,7 @@
         if (typeof prevent_ajax_values == 'string')
             prevent_ajax_values = [prevent_ajax_values];
         // if length of values is 0; allow any value to match (wildcard)
-        var val = $.nodeName(this, 'input') ? this.checked : $(this).val();
+        var val = $(this).attr('type') == 'checkbox' ? this.checked : $(this).val();
         val = prevent_ajax_values.length == 0 ? false : $.inArray(val, prevent_ajax_values) > -1;
         if (val)
             return;
@@ -101,7 +101,7 @@
         $(slaveID).attr(data.attr, data.value).change();
     }
     function handleMasterAttrChange(event) {
-        var value = $.nodeName(this, 'input') ?
+        var value = $(this).attr('type') == 'checkbox' ?
             '' + this.checked : $(this).val();
         var slaveID = event.data.slaveID;
         var name = event.data.name;
@@ -132,7 +132,7 @@
             slaveID.siblings('iframe:first').contents().find('body').html(data);
     }
     function handleMasterValueChange(event) {
-        var value = $.nodeName(this, 'input') ?
+        var value = $(this).attr('type') == 'checkbox' ?
             '' + this.checked : $(this).val();
         var slaveID = event.data.slaveID;
         var name = event.data.name;
@@ -162,7 +162,7 @@
 
         // toggle not really a toggle; only executes the action when
         // the selected item is choosen, or every time if ()
-        var val = $.nodeName(this, 'input') ? this.checked : $(this).val();
+        var val = $(this).attr('type') == 'checkbox' ? this.checked : $(this).val();
 
         // if length of values is 0; allow any value to match (wildcard)
         val = event.data.values.length == 0 ? true : $.inArray(val, event.data.values) > -1;
