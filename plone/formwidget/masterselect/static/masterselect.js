@@ -126,7 +126,7 @@
 
     // AJAX value handling
     function updateValue(slaveID, data) {
-        slaveID = $(slaveID)
+        var slaveID = event.data.form.find(event.data.slaveID);
         slaveID.val(data).change();
         if (slaveID.is('.kupu-editor-textarea')) // update kupu editor too
             slaveID.siblings('iframe:first').contents().find('body').html(data);
@@ -149,7 +149,7 @@
     };
     $.fn.bindMasterSlaveValue = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : true;
-
+        data.form = $(this).parents('form').first();
         $(this).live('change', data, handleMasterValueChange);
         if (trigger)
             $(this).trigger('change');
@@ -158,7 +158,7 @@
     // Field status/visibility toggles
     function handleMasterToggle(event) {
         var action = event.data.action;
-        var slaveID = $(event.data.slaveID);
+        var slaveID = event.data.form.find(event.data.slaveID);
 
         // toggle not really a toggle; only executes the action when
         // the selected item is choosen, or every time if ()
@@ -183,6 +183,7 @@
     }
     $.fn.bindMasterSlaveToggle = function(data) {
         var master = $(this);
+        data.form = master.parents('form').first();
         var trigger = data.initial_trigger ? data.initial_trigger : true;
         data.initial_trigger = trigger;
         master.live('change', data, handleMasterToggle);
