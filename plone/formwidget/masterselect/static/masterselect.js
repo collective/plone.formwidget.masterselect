@@ -174,7 +174,9 @@
         // show toggle
         if (action == 'show') {
             var selector = event.data.siblings ? slaveID.parent() : slaveID;
-            selector.each(function() { $(this)[ val ? "show" : "hide" ]('fast'); });
+            var css_action =  val ? "show" : "hide";
+            var css_option = event.data.initial_trigger ? null : 'fast';
+            selector.each(function() { $(this)[css_action](css_option); });
         //enable toggle
         } else
             slaveID.closest(':input').attr('disabled', val ? false : true);
@@ -182,8 +184,9 @@
     $.fn.bindMasterSlaveToggle = function(data) {
         var master = $(this);
         var trigger = data.initial_trigger ? data.initial_trigger : true;
+        data.initial_trigger = trigger;
         master.live('change', data, handleMasterToggle);
-        if (trigger) {
+        if (data.initial_trigger) {
             var fieldset_id  = master.closest('fieldset').attr('id');
             if (fieldset_id === undefined || $(fieldset_id).is(":visible")) {
                 master.change();
@@ -201,6 +204,7 @@
                 // set back old properties
                 $(fieldset_id).css(old_props);
             }
+            data.initial_trigger = false;
         }
     };
 

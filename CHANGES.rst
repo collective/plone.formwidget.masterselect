@@ -4,6 +4,9 @@ Changelog
 1.3 (unreleased)
 ----------------
 
+- Do not use fast transition on initial trigger.
+  [thomasdesvenain]
+
 - Master select features work when form is loaded in an overlay.
   [thomasdesvenain]
 
