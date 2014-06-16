@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3 (unreleased)
+1.3 (2014-06-16)
 ----------------
 
 - Do not use fast transition on initial trigger.
