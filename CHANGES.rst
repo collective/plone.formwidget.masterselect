@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Add travis and coveralls integration.
+  [saily]
+
 - Documentation updates. Fix rst error in ``CHANGES.rst``. Add an example
   to ``README.rst``.
   [saily]

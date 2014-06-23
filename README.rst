@@ -1,3 +1,9 @@
+.. image:: https://travis-ci.org/collective/plone.formwidget.masterselect.svg
+    :target: https://travis-ci.org/collective/plone.formwidget.masterselect
+
+.. image:: https://coveralls.io/repos/collective/plone.formwidget.masterselect/badge.png
+    :target: https://coveralls.io/r/collective/plone.formwidget.masterselect
+
 MasterSelectWidget
 ==================
 
