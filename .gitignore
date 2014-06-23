@@ -1,17 +1,41 @@
+*.py[co]
+
+# Packages
+*.egg
 *.egg-info
+/dist
+/build
+/eggs
+/parts
+/bin
+/var
+/sdist
+/develop-eggs
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+/.coverage
+/.tox
+/htmlcov
+
+# Translations
 *.mo
-*.pyc
-.installed.cfg
-.mr.developer.cfg
-.project
-.pydevproject
-.settings/
-bin/
-develop-eggs/
-dist/
-parts/
-src/*
-!src/collective/
-var/
-buildout-cache/
-.svn*
+
+# mr.developer
+/.mr.developer.cfg
+/.installed.cfg
+
+# developement
+/.project
+/.pydevproject
+/.settings
+.DS_Store
+*.swp
+local.cfg
+
+# virtualenv
+/include
+/lib
+/.Python
