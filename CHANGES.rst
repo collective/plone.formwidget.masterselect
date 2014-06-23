@@ -4,7 +4,8 @@ Changelog
 1.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add egg-contained buildout.
+  [saily]
 
 
 1.3 (2014-06-16)
