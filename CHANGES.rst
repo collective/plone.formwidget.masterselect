@@ -4,6 +4,10 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Move to plone.app.testing. Migrate selenium tests from windmill to
+  robotframework.
+  [saily]
+
 - Add travis and coveralls integration.
   [saily]
 

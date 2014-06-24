@@ -49,12 +49,12 @@
 
     <!-- Generic Setup -->
     <gs:registerProfile
-      name="default"
-      title="MasterSelect z3cform Widget"
-      description="MasterSelect widget allow control of 'slave' widgets based on selected value"
-      directory="profiles/default"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+        name="default"
+        title="MasterSelect z3cform Widget"
+        description="MasterSelect widget allow control of 'slave' widgets based on selected value"
+        directory="profiles/default"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
     <gs:registerProfile
         name="demo"
