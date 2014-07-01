@@ -18,9 +18,8 @@ Feel free to help edit this document to help expain things better!
 Example
 =======
 
-For more complex examples see ``demo.py`` in pacakge directory.
+For more complex examples see ``demo.py`` in pacakge directory.::
 
-::
     from zope import schema
     from plone.supermodel import model
     from plone.formwidget.masterselect import _
