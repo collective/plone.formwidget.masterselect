@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plone.formwidget.masterselect">
+
+  <genericsetup:upgradeStep
+      title="masterselect.js in now cacheable"
+      description="masterselect.js in now cacheable"
+      source="2"
+      destination="3"
+      handler=".upgrade.v3"
+      profile="plone.formwidget.masterselect:default" />
+
+</configure>

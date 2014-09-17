@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- masterselect.js is now cacheable.
+  [vincentfretin]
+
 - Move to plone.app.testing. Migrate selenium tests from windmill to
   robotframework.
   [saily]
