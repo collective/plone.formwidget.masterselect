@@ -4,7 +4,8 @@ Changelog
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- jQuery 1.9 compatible.
+  [vincentfretin]
 
 
 1.4 (2014-10-09)

@@ -91,7 +91,7 @@
         if (slaveLength <= emptyLength)
             $(data.slaveID).attr('disabled', true);
 
-        $(this).live('change', data, handleMasterVocabularyChange);
+        $(this).on('change', data, handleMasterVocabularyChange);
         if (trigger)
             $(this).trigger('change');
     };
@@ -119,7 +119,7 @@
     $.fn.bindMasterSlaveAttr = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : true;
 
-        $(this).live('change', data, handleMasterAttrChange);
+        $(this).on('change', data, handleMasterAttrChange);
         if (trigger)
             $(this).trigger('change');
     };
@@ -150,7 +150,7 @@
     $.fn.bindMasterSlaveValue = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : true;
         data.form = $(this).parents('form').first();
-        $(this).live('change', data, handleMasterValueChange);
+        $(this).on('change', data, handleMasterValueChange);
         if (trigger)
             $(this).trigger('change');
     };
@@ -186,7 +186,7 @@
         data.form = master.parents('form').first();
         var trigger = data.initial_trigger ? data.initial_trigger : true;
         data.initial_trigger = trigger;
-        master.live('change', data, handleMasterToggle);
+        master.on('change', data, handleMasterToggle);
         if (data.initial_trigger) {
             var fieldset_id  = master.closest('fieldset').attr('id');
             if (fieldset_id === undefined || $(fieldset_id).is(":visible")) {
