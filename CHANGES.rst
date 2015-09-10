@@ -4,7 +4,8 @@ Changelog
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Translate the "select" slave field terms if possible (like "No value").
+  [sgeulette]
 
 
 1.4.1 (2014-10-30)
