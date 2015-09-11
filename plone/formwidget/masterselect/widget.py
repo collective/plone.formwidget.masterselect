@@ -259,13 +259,9 @@ class MasterSelectJSONValue(BrowserView):
                 widget.update()
                 # widget may define items as a property or as a method
                 items = widget.items if not callable(widget.items) else widget.items()
-                # translate if possible. content can be a Message (ok), a string (UnicodeDecodeError), a unicode (ok)
-                # Message must not be decoded
+                # translate if possible. content can be a Message, a string, a unicode
                 for item in items:
-                    try:
-                        item['content'] = translate(item['content'], context=self.request)
-                    except:
-                        item['content'] = translate(safe_unicode(item['content']), context=self.request)
+                    item['content'] = translate(safe_unicode(item['content']), context=self.request)
                 responseJSON = {'items': items}
 
                 # disable select box if term length = 'disable_length'

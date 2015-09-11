@@ -4,7 +4,7 @@ Changelog
 1.5 (unreleased)
 ----------------
 
-- Translate the "select" slave field terms if possible (like "No value").
+- Translate the "vocabulary" slave field terms (like "No value") when entire vocabulary is replaced.
   [sgeulette]
 
 

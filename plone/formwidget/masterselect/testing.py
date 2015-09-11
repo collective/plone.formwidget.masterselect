@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
+from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
@@ -24,7 +24,6 @@ class MasterSelectLayer(PloneSandboxLayer):
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'plone.formwidget.masterselect:demo')
 
-
 PLONE_FORMWIDGET_MASTERSELECT = MasterSelectLayer()
 PLONE_FORMWIDGET_MASTERSELECT_INTEGRATION = IntegrationTesting(
     name='plone.formwidget.masterselect:Integration',
@@ -34,6 +33,6 @@ PLONE_FORMWIDGET_MASTERSELECT_FUNCTIONAL = FunctionalTesting(
     bases=(PLONE_FORMWIDGET_MASTERSELECT, ))
 PLONE_FORMWIDGET_MASTERSELECT_ROBOT = FunctionalTesting(
     name='plone.formwidget.masterselect:Robot',
-    bases=(AUTOLOGIN_LIBRARY_FIXTURE,
+    bases=(REMOTE_LIBRARY_BUNDLE_FIXTURE,
            PLONE_FORMWIDGET_MASTERSELECT,
            z2.ZSERVER_FIXTURE))
