@@ -72,8 +72,10 @@ Scenario: Master boolean field toggles visibility of slave field
 Scenario: Master select field controls slave field vocabulary. Check if value is well translated.
     Set default language  fr
     Given I am on the masterselect demo page as a Manager
-     When I select 'ok' on master field 'form-widgets-masterField4'
-     Then Slave field '7' vocabulary should have text values Aucune valeur,ok
+     Then Slave field '7' vocabulary should '' have text values Aucune valeur,ok,nok
+     When I select 'nok' on master field 'form-widgets-masterField4'
+     Then Slave field '7' vocabulary should '' have text values Aucune valeur,nok
+     And Slave field '7' vocabulary should 'not' have text values ok
     
 
 *** Keywords ***
@@ -102,10 +104,10 @@ Slave field '${id}' vocabulary should have values ${possible_values}
     :FOR    ${i}    in    @{ITEMS}
     \   Page Should Contain Element    xpath=//select[@id='form-widgets-slaveField${id}']/option[@value='${i}']
 
-Slave field '${id}' vocabulary should have text values ${possible_values}
+Slave field '${id}' vocabulary should '${not}' have text values ${possible_values}
     @{ITEMS} =    Split String    ${possible_values}    ,
     :FOR    ${i}    in    @{ITEMS}
-    \   Page Should Contain Element    xpath=//select[@id='form-widgets-slaveField${id}']/option[text()='${i}']
+    \   Run keyword    Page Should ${not} Contain Element    xpath=//select[@id='form-widgets-slaveField${id}']/option[text()='${i}']
 
 Slave master field should be visible
     Element should become visible    css=#formfield-form-widgets-slaveMasterField

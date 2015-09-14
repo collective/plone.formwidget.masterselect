@@ -249,7 +249,6 @@ class IMasterSelectDemo(model.Schema):
              'action': 'vocabulary',
              'vocab_method': getSlaveVocab3,
              'control_param': 'master',
-             'initial_trigger': True,
              },
         ),
         required=True,
