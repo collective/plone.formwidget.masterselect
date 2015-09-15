@@ -29,6 +29,10 @@ def getSlaveVocab2(master):
     return results
 
 
+def getSlaveVocab3(master):
+    return [master]
+
+
 def getSlaveValue(master):
     """Value function that returns ROT13 transformed input."""
     numeric = ord(master)
@@ -233,4 +237,27 @@ class IMasterSelectDemo(model.Schema):
                       u'selected in masterBoolean. It will become visible '
                       u'only when that checkbox is checked.'),
         required=False,
+    )
+
+    masterField4 = MasterSelectField(
+        title=_(u'MasterField 4'),
+        description=_(u'This field controls the vocabulary of slaveField7.'
+                      u'The selected value becomes the value of slaveField7.'),
+        values=('ok', 'nok'),
+        slave_fields=(
+            {'name': 'slaveField7',
+             'action': 'vocabulary',
+             'vocab_method': getSlaveVocab3,
+             'control_param': 'master',
+             },
+        ),
+        required=True,
+    )
+
+    slaveField7 = schema.Choice(
+        title=_(u'SlaveField7'),
+        description=_(u'This field\'s value is controlled by the value '
+                      u'selected in masterBoolean.'),
+        required=False,
+        values=('ok', 'nok')
     )

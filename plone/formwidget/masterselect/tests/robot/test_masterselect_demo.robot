@@ -3,6 +3,7 @@ Resource        plone/app/robotframework/selenium.robot
 Resource        plone/app/robotframework/keywords.robot
 Library         Remote    ${PLONE_URL}/RobotRemote
 Library         String
+Library         plone/app/robotframework/i18n/I18N
 Variables       plone/app/testing/interfaces.py
 Test Setup      Open Test Browser
 Test Teardown   Close All browsers
@@ -68,6 +69,14 @@ Scenario: Master boolean field toggles visibility of slave field
      When I unselect the master boolean checkbox field
      Then Slave field '6' should not be visible
 
+Scenario: Master select field controls slave field vocabulary. Check if value is well translated.
+    Set default language  fr
+    Given I am on the masterselect demo page as a Manager
+     Then Slave field '7' vocabulary should '' have text values Aucune valeur,ok,nok
+     When I select 'nok' on master field 'form-widgets-masterField4'
+     Then Slave field '7' vocabulary should '' have text values Aucune valeur,nok
+     And Slave field '7' vocabulary should 'not' have text values ok
+    
 
 *** Keywords ***
 I am on the masterselect demo page as a ${role}
@@ -94,6 +103,11 @@ Slave field '${id}' vocabulary should have values ${possible_values}
     @{ITEMS} =    Split String    ${possible_values}    ,
     :FOR    ${i}    in    @{ITEMS}
     \   Page Should Contain Element    xpath=//select[@id='form-widgets-slaveField${id}']/option[@value='${i}']
+
+Slave field '${id}' vocabulary should '${not}' have text values ${possible_values}
+    @{ITEMS} =    Split String    ${possible_values}    ,
+    :FOR    ${i}    in    @{ITEMS}
+    \   Run keyword    Page Should ${not} Contain Element    xpath=//select[@id='form-widgets-slaveField${id}']/option[text()='${i}']
 
 Slave master field should be visible
     Element should become visible    css=#formfield-form-widgets-slaveMasterField

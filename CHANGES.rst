@@ -4,7 +4,8 @@ Changelog
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Translate the "vocabulary" slave field terms (like "No value") when entire vocabulary is replaced.
+  [sgeulette]
 
 
 1.4.1 (2014-10-30)

@@ -12,6 +12,7 @@ from z3c.form import interfaces
 from z3c.form.widget import FieldWidget
 from z3c.form.browser import select, checkbox, radio
 
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 
 from plone.formwidget.masterselect.interfaces import IMasterSelectField
@@ -258,6 +259,9 @@ class MasterSelectJSONValue(BrowserView):
                 widget.update()
                 # widget may define items as a property or as a method
                 items = widget.items if not callable(widget.items) else widget.items()
+                # translate if possible. content can be a Message, a string, a unicode
+                for item in items:
+                    item['content'] = translate(safe_unicode(item['content']), context=self.request)
                 responseJSON = {'items': items}
 
                 # disable select box if term length = 'disable_length'
