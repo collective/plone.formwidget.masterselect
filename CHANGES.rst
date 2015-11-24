@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.5 (unreleased)
+1.5 (2015-11-24)
 ----------------
 
 - Translate the "vocabulary" slave field terms (like "No value") when entire vocabulary is replaced.
