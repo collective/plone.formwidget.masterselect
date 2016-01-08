@@ -1,3 +1,5 @@
+import copy
+
 from Acquisition import aq_inner, aq_parent
 
 from zope.component import adapter
@@ -250,6 +252,7 @@ class MasterSelectJSONValue(BrowserView):
             if (IContextSourceBinder.providedBy(vocabulary)
                 or IVocabularyTokenized.providedBy(vocabulary)):
 
+                widget.field = copy.copy(widget.field)
                 if hasattr(widget.field, 'value_type'):
                     widget.field.value_type.vocabulary = vocabulary
                 else:
