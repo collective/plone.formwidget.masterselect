@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.6 (unreleased)
-----------------
+1.5.1 (2016-01-08)
+------------------
 
 - Fix side-effect when updating field.vocabulary. Do now a copy of the field
   before changing the vocabulary.
