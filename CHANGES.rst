@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.6 (unreleased)
-----------------
+1.5.2 (2016-08-08)
+------------------
 
 - Use zope2.View instead of cmf.AddPortalContent for masterselect-jsonvalue
   view. In an edit form, the user doesn't necessary have the Add portal content
@@ -57,7 +57,7 @@ Changelog
 ----------------
 
 - Do not use fast transition on initial trigger.
-  [thomasdesvenain]
+ Â [thomasdesvenain]
 
 - Master select features work when form is loaded in an overlay.
   [thomasdesvenain]
