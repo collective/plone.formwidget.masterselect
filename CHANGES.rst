@@ -4,7 +4,10 @@ Changelog
 1.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Use zope2.View instead of cmf.AddPortalContent for masterselect-jsonvalue
+  view. In an edit form, the user doesn't necessary have the Add portal content
+  permission.
+  [vincentfretin]
 
 
 1.5.1 (2016-01-08)

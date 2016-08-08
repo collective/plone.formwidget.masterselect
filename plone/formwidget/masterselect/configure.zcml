@@ -18,7 +18,7 @@
         for=".interfaces.IMasterSelectWidget"
         name="masterselect-jsonvalue"
         class=".widget.MasterSelectJSONValue"
-        permission="cmf.AddPortalContent"
+        permission="zope2.View"
         />
 
     <!-- Resources -->
