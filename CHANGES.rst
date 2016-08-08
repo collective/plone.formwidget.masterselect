@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.5.3 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 1.5.2 (2016-08-08)
 ------------------
 
@@ -57,7 +63,7 @@ Changelog
 ----------------
 
 - Do not use fast transition on initial trigger.
- Â [thomasdesvenain]
+  [thomasdesvenain]
 
 - Master select features work when form is loaded in an overlay.
   [thomasdesvenain]
