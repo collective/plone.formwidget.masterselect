@@ -21,7 +21,7 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - firefox -v
 script:
-  # - bin/code-analysis
+  - bin/code-analysis
   - bin/test
 after_success:
   - bin/createcoverage -t "--layer=!Robot"
