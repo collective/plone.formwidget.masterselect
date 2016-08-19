@@ -4,7 +4,8 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix package metadata and trove classifiers.
+  [hvelarde]
 
 
 1.5.2 (2016-08-08)

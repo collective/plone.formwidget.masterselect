@@ -15,17 +15,26 @@ setup(
     description='A z3c.form widget that controls the vocabulary or '
                 'display of other fields on an edit page',
     long_description=long_description,
-    # Get more strings from
-    # http://www.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Web Environment',
+        'Framework :: Plone',
+        'Framework :: Plone :: 4.2',
+        'Framework :: Plone :: 4.3',
+        'Framework :: Plone :: 5.0',
+        'Intended Audience :: End Users/Desktop',
+        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'Operating System :: OS Independent',
+        'Programming Language :: JavaScript',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Software Development :: Widget Sets',
     ],
-    keywords='',
+    keywords='plone widget',
     author='Jason Mehring',
     author_email='nrgaway@yahoo.com',
-    url='http://svn.plone.org/svn/plone/plone.formwidget.masterselect',
+    url='https://github.com/collective/plone.formwidget.masterselect',
     license='GPL',
     packages=find_packages(exclude=['ez_setup']),
     namespace_packages=['plone', 'plone.formwidget'],
@@ -37,7 +46,6 @@ setup(
         'plone.supermodel',
         'plone.z3cform',
         'simplejson',
-        # -*- Extra requirements: -*-
     ],
     extras_require={
         'test': [

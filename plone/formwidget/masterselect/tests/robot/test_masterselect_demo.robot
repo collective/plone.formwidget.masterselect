@@ -3,7 +3,6 @@ Resource        plone/app/robotframework/selenium.robot
 Resource        plone/app/robotframework/keywords.robot
 Library         Remote    ${PLONE_URL}/RobotRemote
 Library         String
-Library         plone/app/robotframework/i18n/I18N
 Variables       plone/app/testing/interfaces.py
 Test Setup      Open Test Browser
 Test Teardown   Close All browsers
@@ -76,7 +75,7 @@ Scenario: Master select field controls slave field vocabulary. Check if value is
      When I select 'nok' on master field 'form-widgets-masterField4'
      Then Slave field '7' vocabulary should '' have text values Aucune valeur,nok
      And Slave field '7' vocabulary should 'not' have text values ok
-    
+
 
 *** Keywords ***
 I am on the masterselect demo page as a ${role}
