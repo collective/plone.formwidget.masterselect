@@ -10,9 +10,6 @@ env:
   - PLONE_VERSION=4.3
   - PLONE_VERSION=5.0
 matrix:
-  allow_failures:
-    - env: PLONE_VERSION=4.2
-    - env: PLONE_VERSION=5.0
   fast_finish: true
 install:
   - sed -ie "s#test-4.3.cfg#test-$PLONE_VERSION.cfg#" buildout.cfg
