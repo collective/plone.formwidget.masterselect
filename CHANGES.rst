@@ -12,6 +12,10 @@ Changelog
   of select chosen slave field from collective.z3cform.chosen.
   [vincentfretin]
 
+- Fixed visual issue: in an overlay, i
+  toggle was done one time for each checkbox or radio option.
+  [thomasdesvenain]
+
 - Fix package metadata and trove classifiers.
   [hvelarde]
 
