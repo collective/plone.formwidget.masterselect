@@ -1,7 +1,6 @@
 (function($) {
     var cache = {}; // Cache AJAX results
     var masterVocabularyQueue = {};
-    var masterVocabularyComplete = {};
 
     function sprintf(format, etc) {
         var arg = arguments;
@@ -28,7 +27,7 @@
             .attr('disabled', false).trigger('liszt:updated');
         // trigger liszt:updated for old chosen version in
         // collective.z3cform.chosen
-    };
+    }
     function handleMasterVocabularyChange(event) {
         var value = $(this).attr('type') == 'checkbox' ?
             '' + this.checked : $(this).val();
@@ -53,7 +52,7 @@
 
         // Don't initate ajax request if we match a selected field value
         // to a value in prevent_ajax_vlaues
-        var prevent_ajax_values = event.data.prevent_ajax_values != undefined ? event.data.prevent_ajax_values : []
+        var prevent_ajax_values = event.data.prevent_ajax_values != undefined ? event.data.prevent_ajax_values : [];
         if (typeof prevent_ajax_values == 'string')
             prevent_ajax_values = [prevent_ajax_values];
         // if length of values is 0; allow any value to match (wildcard)
@@ -82,14 +81,14 @@
             else
                 updateSelect(slaveID, cache[cachekey]);
         }
-    };
+    }
     $.fn.bindMasterSlaveVocabulary = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : false;
         var masterType = data.masterType;
         // NEW:
         // Disable slave select if empty
         // Only if it's a select field??
-        var emptyLength = data.empty_length ? data.empty_length : 0
+        var emptyLength = data.empty_length ? data.empty_length : 0;
         var slaveLength = $(data.slaveID)[0].length;
         if (slaveLength <= emptyLength)
             $(data.slaveID).attr('disabled', true);
@@ -126,7 +125,7 @@
                     updateAttr(slaveID, data);
                 });
             else updateAttr(slaveID, cache[cachekey]);
-    };
+    }
     $.fn.bindMasterSlaveAttr = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : true;
 
@@ -136,7 +135,7 @@
     };
 
     // AJAX value handling
-    function updateValue(slaveID, data) {
+    function updateValue(data) {
         var slaveID = event.data.form.find(event.data.slaveID);
         slaveID.val(data).change();
         if (slaveID.is('.kupu-editor-textarea')) // update kupu editor too
@@ -154,10 +153,10 @@
                 { field: this.id, slaveID: slaveID, name: name, masterID: masterID, value: value },
                 function(data) {
                     cache[cachekey] = data;
-                    updateValue(slaveID, data);
+                    updateValue(data);
                 });
-            else updateValue(slaveID, cache[cachekey]);
-    };
+            else updateValue(cache[cachekey]);
+    }
     $.fn.bindMasterSlaveValue = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : true;
         data.form = $(this).parents('form').first();
@@ -195,8 +194,7 @@
     $.fn.bindMasterSlaveToggle = function(data) {
         var master = $(this);
         data.form = master.parents('form').first();
-        var trigger = data.initial_trigger ? data.initial_trigger : true;
-        data.initial_trigger = trigger;
+        data.initial_trigger = data.initial_trigger ? data.initial_trigger : true;
         master.on('change', data, handleMasterToggle);
         if (data.initial_trigger) {
             var fieldset_id  = master.closest('fieldset').attr('id');
