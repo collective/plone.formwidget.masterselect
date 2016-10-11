@@ -47,11 +47,12 @@ jQuery(document).ready(function()
     jQuery(document).bind('loadInsideOverlay', function(e, pbajax, responseText, errorText, api){
         var interval_timeline = setInterval(function(){
             var el = jQuery(pbajax);
-            var o = el.closest('.overlay-ajax');
-            var pbo = o.data('pbo');
+            var pbo = el.closest('.overlay-ajax').data('pbo');
             if (jQuery('#' + pbo.nt + ' .pb-ajax').length > 0){
                 clearInterval(interval_timeline);
-                el.find('.masterselect-widget').change();
+                el.find('.field').each(function() {
+                    $(this).find('.masterselect-widget:first').change();
+                })
             }
         },200);
     });
