@@ -7,12 +7,12 @@
 MasterSelectWidget
 ==================
 
-This is a z3cform widget based on the orginal n Archetypes widget which
+This is a z3cform widget based on the orginal Archetypes widget which
 controls the vocabulary or display of other fields on an edit page. It
 needs to be given information about which fields to control and how to control
 them.
 
-Feel free to help edit this document to help expain things better!
+Feel free to help edit this document to help explain things better!
 
 
 Example
@@ -94,7 +94,7 @@ masterID
 --------
 
 This is optional and will automatically be calculated if omited.  It can
-be used to speicify the exact master field is that is rendered in the html
+be used to specify the exact master field is that is rendered in the html
 document.  Normally you will only need to set this for checkbox masters
 since their id has a -0 added like this: #form-widgets-checkboxfield-0.
 Note that this is a jQuery ID selector.
@@ -110,7 +110,7 @@ slaveID
 -------
 
 This is optional and will automatically be calculated if omited.  It can
-be used to speicify the exact slave field name to control in the html form.
+be used to specify the exact slave field name to control in the html form.
 Note that this is a jQuery ID selector, so something use something
 like this: #form-widgets-field
 
@@ -142,7 +142,7 @@ The type of action to perform on the slave field.  This can be:
 
 ``jquery``
     **NOT YET IMPLEMENTED**
-    a complete jquery startment that will be sent back to the DOM to be
+    a complete jquery statement that will be sent back to the DOM to be
     executed.
 
 
@@ -208,8 +208,8 @@ initial_trigger
 ---------------
 
 Boolean indicated if the master widget should initally be triggered on
-load.  Default is true for everythin except vocabulary in which case it is
-false to prevent an itital ajax call which usually will not be needed.
+load.  Default is true for everything except vocabulary in which case it is
+false to prevent an initial ajax call which usually will not be needed.
 
 A single MasterSelectWidget may control any number of slave fields, new
 fields are controlled by adding new mappings to the slave_fields list/tuple.
