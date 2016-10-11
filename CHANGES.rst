@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.6 (unreleased)
+1.6 (2016-10-11)
 ----------------
 
 - Add optional support for ContactChoice from collective.contact.widget >= 1.8
