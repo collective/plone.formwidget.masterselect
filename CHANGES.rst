@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.5.3 (unreleased)
-------------------
+1.6 (unreleased)
+----------------
 
 - Add optional support for ContactChoice from collective.contact.widget >= 1.8
   as master field.
