@@ -222,3 +222,29 @@ through portal_setup tool and test it by checking the "implicitly addable"
 checkbox for it in the MasterSelectDemo entry in the portal_types tool.
 
 Enjoy!
+
+
+Special case with ContactChoice
+===============================
+
+Since collective.contact.widget 1.8, you can use the ContactChoice field as
+a master field, but it requires a special configuration for masterID and
+masterType properties. Here is an example::
+
+    organization = ContactChoice(
+        title=_(u"Organization"),
+        required=True,
+        source=ContactSourceBinder(obj_types=('organization',)),
+        slave_fields=(
+            {'name': 'department',
+             'masterID': 'form-widgets-organization-input-fields',
+             'masterType': 'ContactChoice',
+             'slaveID': '#form-widgets-department',
+             'action': 'vocabulary',
+             'vocab_method': get_organization_directions_vocabulary,
+             'control_param': 'selected_organism',
+             'initial_trigger': True
+             },
+        )
+    )
+

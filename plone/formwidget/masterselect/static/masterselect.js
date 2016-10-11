@@ -85,6 +85,7 @@
     };
     $.fn.bindMasterSlaveVocabulary = function(data) {
         var trigger = data.initial_trigger ? data.initial_trigger : false;
+        var masterType = data.masterType;
         // NEW:
         // Disable slave select if empty
         // Only if it's a select field??
@@ -93,9 +94,17 @@
         if (slaveLength <= emptyLength)
             $(data.slaveID).attr('disabled', true);
 
-        $(this).on('change', data, handleMasterVocabularyChange);
-        if (trigger)
-            $(this).trigger('change');
+        if (masterType === 'ContactChoice') { // collective.contact.widget
+            $(this).on('change', 'input', data, handleMasterVocabularyChange);
+            if (trigger) {
+                $(this).find('input').first().trigger('change');
+            }
+        } else {
+            $(this).on('change', data, handleMasterVocabularyChange);
+            if (trigger) {
+                $(this).trigger('change');
+            }
+        }
     };
 
     // AJAX value handling

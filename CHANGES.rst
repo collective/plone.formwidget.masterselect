@@ -4,6 +4,10 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- Add optional support for ContactChoice from collective.contact.widget >= 1.8
+  as master field.
+  [vincentfretin]
+
 - Trigger liszt:updated event in updateSelect to force update
   of select chosen slave field from collective.z3cform.chosen.
   [vincentfretin]
