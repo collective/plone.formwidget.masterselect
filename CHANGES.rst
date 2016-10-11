@@ -4,6 +4,10 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- Trigger liszt:updated event in updateSelect to force update
+  of select chosen slave field from collective.z3cform.chosen.
+  [vincentfretin]
+
 - Fix package metadata and trove classifiers.
   [hvelarde]
 

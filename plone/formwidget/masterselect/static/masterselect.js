@@ -25,7 +25,9 @@
             .empty().html( // Replace all options with new ones
                 populateSelectOptions(data.items)).end()
             .change()
-            .attr('disabled', false);
+            .attr('disabled', false).trigger('liszt:updated');
+        // trigger liszt:updated for old chosen version in
+        // collective.z3cform.chosen
     };
     function handleMasterVocabularyChange(event) {
         var value = $(this).attr('type') == 'checkbox' ?
