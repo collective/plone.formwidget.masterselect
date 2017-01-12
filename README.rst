@@ -106,6 +106,10 @@ This is optional and will default to master ID if not defined.
 It has the same usage as masterID but allows to specify any JQuery selector (not
 just an ID).
 
+You will use this with radio button masters, to select all inputs with something like:
+
+    'masterSelector': 'input[name="form.widgets.my_master_field"]',
+
 slaveID
 -------
 
