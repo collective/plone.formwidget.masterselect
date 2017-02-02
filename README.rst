@@ -115,7 +115,7 @@ slaveID
 
 This is optional and will automatically be calculated if omited.  It can
 be used to specify the exact slave field name to control in the html form.
-Note that this is a jQuery ID selector, so something use something
+Note that this is a jQuery ID selector, so use something
 like this: #form-widgets-field
 
 
