@@ -274,4 +274,4 @@ class MasterSelectJSONValue(BrowserView):
 
                 return json.dumps(responseJSON)
 
-        raise ValueError('No such master-slave combo')
+        raise ValueError('No such master-slave combo: %s %s' % (field, slavename))
