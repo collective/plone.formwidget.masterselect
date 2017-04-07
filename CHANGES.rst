@@ -4,7 +4,8 @@ Changelog
 1.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Removed plone.app.jquerytools from generic setup dependencies.
+  [keul]
 
 
 1.6 (2016-10-11)
