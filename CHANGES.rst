@@ -7,6 +7,9 @@ Changelog
 - Removed plone.app.jquerytools from generic setup dependencies.
   [keul]
 
+- Fixed JavaScript: old value in slave field was not
+  re-selected on page reload
+  [keul]
 
 1.6 (2016-10-11)
 ----------------
