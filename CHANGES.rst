@@ -4,6 +4,9 @@ Changelog
 1.7 (unreleased)
 ----------------
 
+- ``simplejson`` not required on Python 2.7+
+  [keul]
+
 - Removed plone.app.jquerytools from generic setup dependencies.
   [keul]
 
