@@ -24,12 +24,7 @@ from plone.formwidget.masterselect.interfaces import IMasterSelectWidget
 from plone.formwidget.masterselect.interfaces import IMasterSelectBoolWidget
 from plone.formwidget.masterselect.interfaces import IMasterSelectRadioWidget
 
-try:
-    # python 2.6
-    import json
-except:
-    # plone 3.3
-    import simplejson as json
+import json
 
 
 BINDERS = dict(

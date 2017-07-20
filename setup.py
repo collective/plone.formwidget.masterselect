@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import sys
 from setuptools import setup, find_packages
 
 version = '1.7.dev0'
@@ -10,16 +9,6 @@ long_description = '\n\n'.join([
     open('CONTRIBUTORS.rst').read(),
     open('CHANGES.rst').read(),
 ])
-
-install_requires = [
-    'z3c.form',
-    'setuptools',
-    'plone.supermodel',
-    'plone.z3cform',
-]
-
-if sys.version_info < (2, 7):
-    install_requires.append('simplejson')
 
 setup(
     name='plone.formwidget.masterselect',
@@ -52,7 +41,12 @@ setup(
     namespace_packages=['plone', 'plone.formwidget'],
     include_package_data=True,
     zip_safe=False,
-    install_requires=install_requires,
+    install_requires=[
+        'setuptools',
+        'z3c.form',
+        'plone.supermodel',
+        'plone.z3cform',
+    ],
     extras_require={
         'test': [
             'plone.app.testing [robot] >= 4.2.2',
