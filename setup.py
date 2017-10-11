@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from setuptools import setup, find_packages
 
 version = '1.7.dev0'
@@ -41,11 +42,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'z3c.form',
         'setuptools',
+        'z3c.form',
         'plone.supermodel',
         'plone.z3cform',
-        'simplejson',
     ],
     extras_require={
         'test': [
