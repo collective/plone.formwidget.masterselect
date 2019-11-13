@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.7 (unreleased)
+1.7 (2019-11-13)
 ----------------
 
 - Removed deprecated ``simplejson`` dependency
