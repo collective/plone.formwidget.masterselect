@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema import Choice, Bool
 
 from plone.formwidget.masterselect.widget import MasterSelectWidget
@@ -13,14 +13,11 @@ from plone.formwidget.masterselect.interfaces import IMasterSelectRadioField
 from zope.i18nmessageid import MessageFactory
 _ = MessageFactory("plone.formwidget.masterselect")
 
-
+@implementer(IMasterSelectField)
 class MasterSelectField(Choice):
     """MasterSelectField that provides additional properties for widget
     (extends schema.Choice)
     """
-
-    implements(IMasterSelectField)
-
     slave_fields = ()
 
     def __init__(self,
@@ -30,14 +27,11 @@ class MasterSelectField(Choice):
         self.slave_fields = slave_fields
         super(MasterSelectField, self).__init__(**kw)
 
-
+@implementer(IMasterSelectBoolField)
 class MasterSelectBoolField(Bool):
     """MasterSelectBoolField that provides addtional properties for widget
     (extends schema.Bool)
     """
-
-    implements(IMasterSelectBoolField)
-
     slave_fields = ()
 
     def __init__(self,
@@ -47,14 +41,11 @@ class MasterSelectBoolField(Bool):
         self.slave_fields = slave_fields
         super(MasterSelectBoolField, self).__init__(**kw)
 
-
+@implementer(IMasterSelectRadioField)
 class MasterSelectRadioField(Choice):
     """MasterSelectRadioField that provides additional properties for widget
     (extends schema.Choice)
     """
-
-    implements(IMasterSelectRadioField)
-
     slave_fields = ()
 
     def __init__(self,

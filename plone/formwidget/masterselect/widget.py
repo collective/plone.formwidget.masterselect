@@ -4,6 +4,7 @@ from Acquisition import aq_inner, aq_parent
 
 from zope.component import adapter
 from zope.interface import implements, implementer
+
 from zope.schema.interfaces import IContextSourceBinder, IBool
 from zope.schema.interfaces import IVocabularyTokenized
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
@@ -122,26 +123,26 @@ class MasterSelect(object):
         return JQUERY_ONLOAD % '\n'.join(self.renderJS())
 
 
+@implementer(IMasterSelectWidget)
 class MasterSelectWidget(select.SelectWidget, MasterSelect):
     """Master Select Widget
     """
-    implements(IMasterSelectWidget)
 
     klass = u'masterselect-widget'
 
 
+@implementer(IMasterSelectBoolWidget)
 class MasterSelectBoolWidget(checkbox.SingleCheckBoxWidget, MasterSelect):
     """MasterSelectBoolWidget
     """
-    implements(IMasterSelectBoolWidget)
 
     klass = u'masterselect-widget'
 
 
+@implementer(IMasterSelectRadioWidget)
 class MasterSelectRadioWidget(radio.RadioWidget, MasterSelect):
     """MasterSelectRadioWidget
     """
-    implements(IMasterSelectRadioWidget)
 
     klass = u'masterselect-widget'
 
