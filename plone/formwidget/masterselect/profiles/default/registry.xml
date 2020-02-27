@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<registry>
+
+    <records prefix="plone.resources/jquery-populate-js"
+            interface="Products.CMFPlone.interfaces.IResourceRegistry">
+    <value key="js">++plone++plone.formwidget.masterselect/jquery.populate.js</value>
+    </records>
+
+    <records prefix="plone.resources/masterselect"
+            interface="Products.CMFPlone.interfaces.IResourceRegistry">
+    <value key="js">++plone++plone.formwidget.masterselect/masterselect.js</value>
+    </records>
+
+    <records prefix="plone.bundles/masterselectScript"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources" purge="false">
+        <element>jquery-populate-js</element>
+        <element>masterselect</element>
+    </value>
+    <value key="depends"></value>
+    <value key="jscompilation">++plone++static/master-compiled.js</value>
+    <value key="csscompilation">++plone++static/master-compiled.css</value>
+    <value key="last_compilation">2019-04-26 00:00:00</value>
+    <value key="compile">True</value>
+    <value key="enabled">True</value>
+    </records>
+
+</registry>

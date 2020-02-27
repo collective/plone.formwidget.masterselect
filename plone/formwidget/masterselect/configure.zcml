@@ -20,10 +20,11 @@
         class=".widget.MasterSelectJSONValue"
         permission="zope2.View"
         />
-
-    <!-- Resources -->
-    <browser:resourceDirectory
+        
+    <!-- Publish static files -->
+    <plone:static
         name="plone.formwidget.masterselect"
+        type="plone"
         directory="static"
         />
 
