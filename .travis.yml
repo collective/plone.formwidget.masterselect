@@ -1,14 +1,12 @@
 language: python
-python: 2.7
+python: 3.6
 sudo: false
 cache:
   directories:
   - eggs
   - parts/node
 env:
-  - PLONE_VERSION=4.2
-  - PLONE_VERSION=4.3
-  - PLONE_VERSION=5.0
+  - PLONE_VERSION=5.2
 matrix:
   fast_finish: true
 install:
