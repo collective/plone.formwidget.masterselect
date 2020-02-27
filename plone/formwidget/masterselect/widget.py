@@ -208,6 +208,7 @@ class MasterSelectJSONValue(BrowserView):
         self.request.response.setHeader(
             'Content-Type', 'application/json; charset=utf-8')
 
+        # import pdb; pdb.set_trace()
         field = self.request['field']
         slavename = self.request['name']
         slaveid = self.request['slaveID']

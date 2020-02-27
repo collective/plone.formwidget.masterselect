@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:gs="http://namespaces.zope.org/genericsetup"
     i18n_domain="plone.formwidget.masterselect">
 
@@ -20,7 +21,7 @@
         class=".widget.MasterSelectJSONValue"
         permission="zope2.View"
         />
-        
+
     <!-- Publish static files -->
     <plone:static
         name="plone.formwidget.masterselect"
@@ -57,6 +58,7 @@
         description="MasterSelect widget allow control of 'slave' widgets based on selected value"
         directory="profiles/default"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.post_install"
         />
 
     <gs:registerProfile
@@ -65,6 +67,12 @@
         directory="profiles/demo"
         description="MasterSelect z3cform widget demonstration type"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.uninstall"
+        />
+
+    <utility
+        factory=".setuphandlers.HiddenProfiles"
+        name="collective.contactinformation-hiddenprofiles"
         />
 
 </configure>
