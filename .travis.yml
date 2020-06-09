@@ -10,6 +10,9 @@ cache:
     - $HOME/buildout-cache
 addons:
   firefox: 45.8.0esr
+  apt:
+    packages:
+      firefox-geckodriver
 env:
   jobs:
     - PLONE_VERSION=5.2.x
