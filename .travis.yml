@@ -9,7 +9,7 @@ cache:
   directories:
     - $HOME/buildout-cache
 addons:
-  firefox: 45.8.0esr
+  firefox: 77.0
   apt:
     packages:
       firefox-geckodriver
