@@ -227,7 +227,7 @@ class MasterSelectJSONValue(BrowserView):
             # --- VALUE --------------------------------------------------------
             if action == 'value':
                 value = self.getVocabulary(slave, value, '')
-                return json.dumps(translate(value, self.request))
+                return json.dumps(translate(value, context=self.request))
 
             # --- ATTR- --------------------------------------------------------
             if action == 'attr':
