@@ -4,7 +4,7 @@ Changelog
 1.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- FIX loading the compiled js resource
 
 
 1.7 (2019-11-13)

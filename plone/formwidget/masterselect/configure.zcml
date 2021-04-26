@@ -23,11 +23,9 @@
         />
 
     <!-- Publish static files -->
-    <plone:static
-        name="plone.formwidget.masterselect"
-        type="plone"
-        directory="static"
-        />
+   <browser:resourceDirectory
+    name="plone.formwidget.masterselect"
+    directory="static" />
 
     <!-- Widget templates -->
     <z3c:widgetTemplate
