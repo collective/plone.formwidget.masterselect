@@ -4,7 +4,17 @@ Changelog
 1.8 (unreleased)
 ----------------
 
-- FIX loading the compiled js resource
+- Add support for Python 3 (Plone 5.2.2). Drop support for Python 2.7 & 3.6.
+  [wkbkhard, laulaz]
+
+- Fix loading the compiled js resource
+  [alessandro.ceglie]
+
+- Fix error during translation
+  [pbauer]
+
+- Fix buildout / Travis
+  [tisto, wkbkhard]
 
 
 1.7 (2019-11-13)
