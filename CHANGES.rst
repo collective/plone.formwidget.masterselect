@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.8 (unreleased)
-----------------
+2.0.0 (2021-05-27)
+------------------
 
 - Add support for Python 3 (Plone 5.2.2). Drop support for Python 2.7 & 3.6.
   [wkbkhard, laulaz]
