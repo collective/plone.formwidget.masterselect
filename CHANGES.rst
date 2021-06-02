@@ -4,7 +4,8 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove old upgrade step.
+  [wesleybl]
 
 
 2.0.0 (2021-05-27)

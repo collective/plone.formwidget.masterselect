@@ -9,7 +9,6 @@
     <!-- Include our dependencies -->
     <includeDependencies package="." />
     <include package="Products.CMFCore" file="permissions.zcml" />
-    <include file="upgrade.zcml" />
 
     <adapter factory=".widget.MasterSelectFieldWidget" />
     <adapter factory=".widget.MasterSelectBoolFieldWidget" />
