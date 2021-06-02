@@ -1,0 +1,24 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <gs:registerProfile
+      name="5"
+      title="Fix resource not found"
+      directory="5"
+      description='Configuration for version 5'
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+  <gs:upgradeSteps
+      source="4"
+      destination="5"
+      profile="plone.formwidget.masterselect:default">
+
+    <gs:upgradeDepends
+        title="Fix resource not found (GS profile)"
+        description="Remove master-compiled.css from masterselectScript bundle"
+        import_profile="plone.formwidget.masterselect.upgrades:5" />
+
+  </gs:upgradeSteps>
+
+</configure>
