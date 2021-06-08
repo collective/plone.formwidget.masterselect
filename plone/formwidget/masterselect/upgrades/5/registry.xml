@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<registry>
+
+    <records prefix="plone.bundles/masterselectScript"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="csscompilation"></value>
+    </records>
+
+</registry>

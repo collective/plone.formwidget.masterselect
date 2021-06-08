@@ -4,7 +4,11 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix resource css not found. Fix `#23 <https://github.com/collective/plone.formwidget.masterselect/issues/23>`_
+  [wesleybl]
+
+- Remove old upgrade step.
+  [wesleybl]
 
 
 2.0.0 (2021-05-27)
