@@ -46,12 +46,14 @@ setup(
         'Products.CMFPlone',
         'setuptools',
         'z3c.form',
+        'zope.component',
     ],
     extras_require={
         'test': [
             'plone.app.dexterity',
             'plone.app.robotframework',
             'plone.app.testing [robot] >= 4.2.2',
+            'plone.registry',
             'Products.GenericSetup',
         ],
     },

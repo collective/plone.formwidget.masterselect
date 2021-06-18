@@ -3,6 +3,9 @@
 
     <records prefix="plone.bundles/masterselectScript"
             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources">
+            <element>masterselect</element>
+        </value>
         <value key="jscompilation">++resource++plone.formwidget.masterselect/masterselect.js</value>
         <value key="csscompilation">++resource++plone.formwidget.masterselect/master-compiled.css</value>
         <value key="last_compilation"></value>

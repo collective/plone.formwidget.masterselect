@@ -3,6 +3,7 @@
 
     <records prefix="plone.bundles/masterselectScript"
             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources"></value>
         <value key="csscompilation"></value>
     </records>
 
