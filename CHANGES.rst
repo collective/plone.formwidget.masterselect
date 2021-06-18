@@ -4,6 +4,9 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- Use compile False in bundle.
+  [wesleybl]
+
 - Fix resource css not found. Fix `#23 <https://github.com/collective/plone.formwidget.masterselect/issues/23>`_
   [wesleybl]
 

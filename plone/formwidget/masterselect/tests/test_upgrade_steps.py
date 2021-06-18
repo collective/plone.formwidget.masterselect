@@ -78,6 +78,7 @@ class Upgrade4to5TestCase(UpgradeTestCaseBase):
             self.portal(),
         )
         self.assertEqual(['masterselect'], bundle.resources)
+        self.assertTrue(bundle.compile)
 
         self._do_upgrade_step(step)
 
@@ -86,3 +87,4 @@ class Upgrade4to5TestCase(UpgradeTestCaseBase):
             self.portal(),
         )
         self.assertEqual([], bundle.resources)
+        self.assertFalse(bundle.compile)
