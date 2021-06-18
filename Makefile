@@ -25,7 +25,6 @@ update: ## Update Make and Buildout
 	wget -O Makefile https://raw.githubusercontent.com/kitconcept/buildout/master/Makefile
 	wget -O requirements.txt https://raw.githubusercontent.com/kitconcept/buildout/master/requirements.txt
 	wget -O plone-5.2.x.cfg https://raw.githubusercontent.com/kitconcept/buildout/master/plone-5.2.x.cfg
-	wget -O ci.cfg https://raw.githubusercontent.com/kitconcept/buildout/master/ci.cfg
 
 .installed.cfg: bin/buildout *.cfg
 	bin/buildout
