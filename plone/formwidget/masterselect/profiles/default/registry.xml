@@ -4,8 +4,8 @@
     <records prefix="plone.bundles/masterselectScript"
             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
         <value key="jscompilation">++resource++plone.formwidget.masterselect/masterselect.js</value>
-        <value key="last_compilation"></value>
-        <value key="compile">True</value>
+        <value key="last_compilation">2021-06-18 00:00:00</value>
+        <value key="compile">False</value>
         <value key="enabled">True</value>
     </records>
 

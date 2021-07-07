@@ -5,6 +5,9 @@ from plone.app.testing import applyProfile
 from plone.formwidget.masterselect.testing import (
     PLONE_FORMWIDGET_MASTERSELECT_INTEGRATION,
 )
+from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.interfaces import IBundleRegistry
+from zope.component import getUtility
 
 import unittest
 
@@ -61,6 +64,12 @@ class Upgrade4to5TestCase(UpgradeTestCaseBase):
         step = self._get_upgrade_step(title)
         self.assertIsNotNone(step)
 
+        registry = getUtility(IRegistry)
+        bundle = registry.forInterface(
+            IBundleRegistry,
+            prefix='plone.bundles/masterselectScript',
+        )
+
         # Simulate preview state.
         applyProfile(self.portal, 'plone.formwidget.masterselect:testupgrades')
 
@@ -68,6 +77,8 @@ class Upgrade4to5TestCase(UpgradeTestCaseBase):
             'plone.formwidget.masterselect/master-compiled.css',
             self.portal(),
         )
+        self.assertEqual(['masterselect'], bundle.resources)
+        self.assertTrue(bundle.compile)
 
         self._do_upgrade_step(step)
 
@@ -75,3 +86,5 @@ class Upgrade4to5TestCase(UpgradeTestCaseBase):
             'plone.formwidget.masterselect/master-compiled.css',
             self.portal(),
         )
+        self.assertEqual([], bundle.resources)
+        self.assertFalse(bundle.compile)

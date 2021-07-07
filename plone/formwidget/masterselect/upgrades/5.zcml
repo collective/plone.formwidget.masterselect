@@ -16,7 +16,7 @@
 
     <gs:upgradeDepends
         title="Fix resource not found (GS profile)"
-        description="Remove master-compiled.css from masterselectScript bundle"
+        description="Remove master-compiled.css from masterselectScript bundle and use compile False"
         import_profile="plone.formwidget.masterselect.upgrades:5" />
 
   </gs:upgradeSteps>

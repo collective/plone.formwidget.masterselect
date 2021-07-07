@@ -41,16 +41,20 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'setuptools',
-        'z3c.form',
         'plone.supermodel',
         'plone.z3cform',
+        'Products.CMFPlone',
+        'setuptools',
+        'z3c.form',
+        'zope.component',
     ],
     extras_require={
         'test': [
-            'plone.app.testing [robot] >= 4.2.2',
-            'plone.app.robotframework',
             'plone.app.dexterity',
+            'plone.app.robotframework',
+            'plone.app.testing [robot] >= 4.2.2',
+            'plone.registry',
+            'Products.GenericSetup',
         ],
     },
     entry_points="""
