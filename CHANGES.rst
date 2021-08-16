@@ -4,6 +4,10 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- IMasterSelectField inherits from IField instead of IObject.
+  [wesleybl]
+
+
 - Use compile False in bundle.
   [wesleybl]
 
