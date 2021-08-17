@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
+
 
 version = '2.0.1.dev0'
 
@@ -47,6 +49,7 @@ setup(
         'setuptools',
         'z3c.form',
         'zope.component',
+        'zope.schema',
     ],
     extras_require={
         'test': [
