@@ -4,6 +4,9 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- Fix interfaces implemented by fields.
+  [wesleybl]
+
 - Use compile False in bundle.
   [wesleybl]
 
