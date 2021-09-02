@@ -70,12 +70,17 @@ Scenario: Master boolean field toggles visibility of slave field
 
 Scenario: Master select field controls slave field vocabulary. Check if value is well translated.
     Set default language  fr
+    Add available language  fr
     Given I am on the masterselect demo page as a Manager
      Then Slave field '7' vocabulary should '' have text values Aucune valeur,ok,nok
      When I select 'nok' on master field 'form-widgets-masterField4'
      Then Slave field '7' vocabulary should '' have text values Aucune valeur,nok
      And Slave field '7' vocabulary should 'not' have text values ok
 
+Scenario: Hide default tab when click on other tabs.
+    Given I am on the masterselect demo page as a Manager
+     When I click on tab Categorization
+     Then Default tab must be hidden
 
 *** Keywords ***
 I am on the masterselect demo page as a ${role}
@@ -129,3 +134,18 @@ I select the master boolean checkbox field
 
 I unselect the master boolean checkbox field
     Unselect Checkbox    css=#form-widgets-masterBoolean-0
+
+I click on tab Categorization
+    Click Link  Categorization
+
+Default tab must be hidden
+    Element Should Not Be Visible  css=#fieldset-default
+
+Add available language
+    [Arguments]  ${available_language}
+    Enable Autologin As  Manager
+    Set Autologin Username  ${TEST_USER_NAME}
+    Go To  ${PLONE_URL}/@@language-controlpanel
+    Select From List  css=#form-widgets-available_languages-from  ${available_language}
+    Click Button  name=from2toButton
+    Click Button  css=#form-buttons-save

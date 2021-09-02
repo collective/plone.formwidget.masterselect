@@ -19,7 +19,9 @@
     <property name="add_permission">cmf.AddPortalContent</property>
     <!-- enabled behaviors -->
     <property name="behaviors">
-        <element value="plone.app.content.interfaces.INameFromTitle"/>
+        <element value="plone.namefromtitle"/>
+        <element value="plone.categorization"/>
+        <element value="plone.publication"/>
     </property>
     <!-- View information -->
     <property name="default_view">view</property>
