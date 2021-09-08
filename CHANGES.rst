@@ -4,6 +4,9 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- Hides default tab in edit form in Firefox when we click on another tab. Fix `#32 <https://github.com/collective/plone.formwidget.masterselect/issues/32>`_
+  [wesleybl]
+
 - Fix interfaces implemented by fields.
   [wesleybl]
 

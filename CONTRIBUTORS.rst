@@ -15,3 +15,4 @@ Contributors
 - Cédric Messiant, Ecreall: cedricmessiant@ecreall.com
 - Vincent Fretin, Ecreall: vincentfretin@ecreall.com
 - Daniel Widerin, daniel@widerin.net
+- Wesley Barroso Lopes, wesleybl@gmail.com

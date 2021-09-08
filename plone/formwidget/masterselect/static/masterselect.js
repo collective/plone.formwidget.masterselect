@@ -256,7 +256,6 @@
         var props = {
           position: 'absolute',
           visibility: 'hidden',
-          display: 'block'
         };
         // backup old properties
         var old_props = {};
