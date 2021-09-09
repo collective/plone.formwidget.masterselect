@@ -74,7 +74,7 @@ class MasterSelect(object):
         widgetURL = url + '/++widget++%s/@@masterselect-jsonvalue' % self.__name__
 
         for slave in self.getSlaves():
-            if not 'slaveID' in slave:
+            if 'slaveID' not in slave:
                 # Try to get it from widget
                 widget = self.form.widgets.get(slave['name'])
                 if widget is not None and getattr(widget, 'id', None) is not None:
