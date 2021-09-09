@@ -38,8 +38,9 @@ setup(
     author_email='nrgaway@yahoo.com',
     url='https://github.com/collective/plone.formwidget.masterselect',
     license='GPL',
-    packages=find_packages(exclude=['ez_setup']),
+    packages=find_packages("src", exclude=['ez_setup']),
     namespace_packages=['plone', 'plone.formwidget'],
+    package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
     install_requires=[
