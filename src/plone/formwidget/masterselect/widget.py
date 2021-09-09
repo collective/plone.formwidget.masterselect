@@ -208,8 +208,6 @@ class MasterSelectJSONValue(BrowserView):
         # import pdb; pdb.set_trace()
         field = self.request['field']
         slavename = self.request['name']
-        slaveid = self.request['slaveID']
-        masterid = self.request['masterID']
         value = self.request['value']
 
         for slave in self.widget.getSlaves():
