@@ -1,10 +1,14 @@
 from plone.formwidget.masterselect.interfaces import IMasterSelectBoolField
 from plone.formwidget.masterselect.interfaces import IMasterSelectField
 from plone.formwidget.masterselect.interfaces import IMasterSelectRadioField
-from plone.formwidget.masterselect.widget import MasterSelectBoolFieldWidget
-from plone.formwidget.masterselect.widget import MasterSelectFieldWidget
-from plone.formwidget.masterselect.widget import MasterSelectRadioFieldWidget
-from plone.formwidget.masterselect.widget import MasterSelectWidget
+from plone.formwidget.masterselect.widget import \
+    MasterSelectBoolFieldWidget  # noqa: F401
+from plone.formwidget.masterselect.widget import \
+    MasterSelectFieldWidget  # noqa: F401
+from plone.formwidget.masterselect.widget import \
+    MasterSelectRadioFieldWidget  # noqa: F401
+from plone.formwidget.masterselect.widget import \
+    MasterSelectWidget  # noqa: F401
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implementer
 from zope.schema import Bool
