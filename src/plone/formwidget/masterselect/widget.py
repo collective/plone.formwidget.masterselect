@@ -17,7 +17,6 @@ from zope.browser.interfaces import IBrowserView
 from zope.component import adapter
 from zope.i18n import translate
 from zope.interface import implementer
-from zope.interface import implements
 from zope.schema.interfaces import IBool
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.interfaces import IVocabularyTokenized
