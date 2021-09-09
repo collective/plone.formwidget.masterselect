@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import applyProfile
 from plone.testing import z2
 from zope.configuration import xmlconfig
 
@@ -23,6 +23,7 @@ class MasterSelectLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'plone.formwidget.masterselect:demo')
+
 
 PLONE_FORMWIDGET_MASTERSELECT = MasterSelectLayer()
 PLONE_FORMWIDGET_MASTERSELECT_INTEGRATION = IntegrationTesting(
