@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.0.1 (2021-09-16)
 ------------------
 
 - Hides default tab in edit form in Firefox when we click on another tab. Fix `#32 <https://github.com/collective/plone.formwidget.masterselect/issues/32>`_
