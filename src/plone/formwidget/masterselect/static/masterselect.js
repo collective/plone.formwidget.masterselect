@@ -96,7 +96,9 @@
     if (value != null) {
       if (cache[cachekey] == undefined) {
         masterVocabularyQueue[queuekey] = $.getJSON(
+          // post url
           event.data.url,
+          // post data
           {
             field: this.id,
             name: name,
@@ -104,6 +106,7 @@
             masterID: masterID,
             value: value
           },
+          // callback
           function(data) {
             cache[cachekey] = data;
             updateSelect(slaveID, data);
