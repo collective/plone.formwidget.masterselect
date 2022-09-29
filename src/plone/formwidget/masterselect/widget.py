@@ -130,7 +130,7 @@ class MasterSelectWidget(select.SelectWidget, MasterSelect):
     """Master Select Widget
     """
 
-    klass = u'masterselect-widget'
+    klass = u'form-select masterselect-widget'
 
 
 @implementer(IMasterSelectBoolWidget)
