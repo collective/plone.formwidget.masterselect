@@ -37,7 +37,7 @@ jobs:
       - run: pip install virtualenv
       - run: pip install wheel
       - name: pip install
-        run: pip install -r requirements-${{ matrix.python-version }}.txt
+        run: pip install -r requirements-${{ matrix.plone-version }}.txt
 
       # Xvfb
       - run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
