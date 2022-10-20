@@ -4,7 +4,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix JSON call URL in non-rooted virtual host environments. Fixes #37
+  [erral]
 
 
 2.0.1 (2021-09-16)
