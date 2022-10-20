@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.8 (UNRELEASED)
+----------------
+
+- Fix JSON call URL for non-rooted virtualhost environments. Fixes #37
+  [erral]
+
+
 1.7 (2019-11-13)
 ----------------
 
