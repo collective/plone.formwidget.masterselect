@@ -4,11 +4,12 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.formwidget.masterselect">
 
     <!-- Include our dependencies -->
-    <includeDependencies package="." />
     <include package="Products.CMFCore" file="permissions.zcml" />
+    <include package="plone.app.z3cform" />
     <include package=".upgrades" />
 
     <adapter factory=".widget.MasterSelectFieldWidget" />
@@ -28,26 +29,55 @@
     directory="static" />
 
     <!-- Widget templates -->
-    <z3c:widgetTemplate
-        mode="input"
-        widget=".interfaces.IMasterSelectWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="select_input.pt"
-        />
+    <!-- plone < 6 -->
+    <configure zcml:condition="not-have plone-60">
+        <z3c:widgetTemplate 
+            mode="input"
+            widget=".interfaces.IMasterSelectWidget"
+            layer="z3c.form.interfaces.IFormLayer"
+            template="select_input.pt"
+            />
 
-    <z3c:widgetTemplate
-        mode="input"
-        widget=".interfaces.IMasterSelectBoolWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="checkbox_input.pt"
-        />
+        <z3c:widgetTemplate
+            mode="input"
+            widget=".interfaces.IMasterSelectBoolWidget"
+            layer="z3c.form.interfaces.IFormLayer"
+            template="checkbox_input.pt"
+            />
 
-    <z3c:widgetTemplate
-        mode="input"
-        widget=".interfaces.IMasterSelectRadioWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="radio_input.pt"
-        />
+        <z3c:widgetTemplate
+            mode="input"
+            widget=".interfaces.IMasterSelectRadioWidget"
+            layer="z3c.form.interfaces.IFormLayer"
+            template="radio_input.pt"
+            />
+    </configure>
+    <!-- plone >= 6 -->
+    <configure zcml:condition="have plone-60">
+        <z3c:widgetTemplate 
+            mode="input"
+            widget=".interfaces.IMasterSelectWidget"
+            layer="plone.app.z3cform.interfaces.IPloneFormLayer"
+            template="select_input.pt"
+            />
+
+        <z3c:widgetTemplate
+            mode="input"
+            widget=".interfaces.IMasterSelectBoolWidget"
+            layer="plone.app.z3cform.interfaces.IPloneFormLayer"
+            template="checkbox_input.pt"
+            />
+
+        <z3c:widgetTemplate
+            mode="input"
+            widget=".interfaces.IMasterSelectRadioWidget"
+            layer="plone.app.z3cform.interfaces.IPloneFormLayer"
+            template="radio_input.pt"
+            />
+    </configure>
+    
+
+
 
     <!-- Generic Setup -->
     <gs:registerProfile
