@@ -20,14 +20,6 @@ all: .installed.cfg
 help: ## This help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: Update Makefile and Buildout
-update: ## Update Make and Buildout
-	wget -O Makefile https://raw.githubusercontent.com/kitconcept/buildout/5.2/Makefile
-	wget -O requirements.txt https://raw.githubusercontent.com/kitconcept/buildout/5.2/requirements.txt
-	wget -O plone-5.2.x.cfg https://raw.githubusercontent.com/kitconcept/buildout/5.2/plone-5.2.x.cfg
-	wget -O ci.cfg https://raw.githubusercontent.com/kitconcept/buildout/5.2/ci.cfg
-	wget -O versions.cfg https://raw.githubusercontent.com/kitconcept/buildout/5.2/versions.cfg
-
 .installed.cfg: bin/buildout *.cfg
 	bin/buildout
 
