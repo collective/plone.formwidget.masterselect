@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8, 3.7]
+        python-version: [3.8]
         plone-version: [5.2]
 
     steps:
@@ -30,7 +30,7 @@ jobs:
       # Firefox
       - uses: browser-actions/setup-firefox@latest
         with:
-          firefox-version: '89.0'
+          firefox-version: '102.6.0esr'
       - run: firefox --version
 
       # python install

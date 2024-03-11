@@ -4,7 +4,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '2.0.2.dev0'
+version = '3.0.0.dev0'
 
 long_description = '\n\n'.join([
     open('README.rst').read(),
@@ -28,7 +28,6 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: JavaScript',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Software Development :: Widget Sets',
