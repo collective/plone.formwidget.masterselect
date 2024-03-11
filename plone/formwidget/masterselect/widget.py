@@ -70,7 +70,12 @@ class MasterSelect(object):
             yield slave.copy()
 
     def renderJS(self):
-        url = '/'.join(self.request.physicalPathFromURL(self.request.getURL()))
+        url = "/".join(
+            [""]
+            + self.request.physicalPathToVirtualPath(
+                self.request.physicalPathFromURL(self.request.getURL())
+            ),
+        )
         widgetURL = url + '/++widget++%s/@@masterselect-jsonvalue' % self.__name__
 
         for slave in self.getSlaves():
