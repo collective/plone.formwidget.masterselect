@@ -4,6 +4,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Fix JSON call URL in non-rooted virtual host environments. Fixes #37
+  [erral]
+
 - Drop support to Python 3.7.
   [wesleybl]
 
