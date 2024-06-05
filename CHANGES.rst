@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.8 (UNRELEASED)
+1.8 (2024-06-05)
 ----------------
 
 - Fix JSON call URL for non-rooted virtualhost environments. Fixes #37
