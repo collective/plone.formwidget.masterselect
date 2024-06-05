@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.0 (unreleased)
+3.0.0 (2024-06-05)
 ------------------
 
 - Fix JSON call URL in non-rooted virtual host environments. Fixes #37
