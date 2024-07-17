@@ -187,8 +187,8 @@ class MasterSelectJSONValue(BrowserView):
         # from plone.transformchain.interfaces import DISABLE_TRANSFORM_REQUEST_KEY
         # request.environ[DISABLE_TRANSFORM_REQUEST_KEY] = True
 
-    def createVocaabulary(self, value):
-        """Create a simple vocubulary from provided value, list or tuple
+    def createVocabulary(self, value):
+        """Create a simple vocabulary from provided value, list or tuple
         """
         terms = []
         for token in value:
@@ -241,7 +241,7 @@ class MasterSelectJSONValue(BrowserView):
             vocabulary = self.getVocabulary(slave, value)
 
             if isinstance(vocabulary, (tuple, list)):
-                vocabulary = self.createVocaabulary(vocabulary)
+                vocabulary = self.createVocabulary(vocabulary)
 
             widget = self.widget.form.widgets.get(slave['name'])
             if widget is None:
