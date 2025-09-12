@@ -43,3 +43,4 @@ local.cfg
 /pyvenv.cfg
 
 /pip-selfcheck.json
+/.plone.versioncheck.tracked.json

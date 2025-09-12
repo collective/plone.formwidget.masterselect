@@ -22,8 +22,14 @@ class TestSetup(unittest.TestCase):
 
     def test_product_installed(self):
         """Test if plone.formwidget.masterselect is installed."""
-        self.assertTrue(self.installer.isProductInstalled(
+        self.assertTrue(self.installer.is_product_installed(
             'plone.formwidget.masterselect'))
+
+    def test_uninstall(self):
+        self.installer.uninstall_product('plone.formwidget.masterselect')
+        self.assertFalse(
+            self.installer.is_product_installed('plone.formwidget.masterselect')
+        )
 
     def _get_profiles_upgrades(self):
         """Return the list o profiles of upgrade steps."""

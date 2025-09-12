@@ -4,7 +4,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '2.0.1+once.1'
+version = '3.0.1.dev0'
 
 long_description = '\n\n'.join([
     open('README.rst').read(),
@@ -23,6 +23,15 @@ setup(
         'Environment :: Web Environment',
         'Framework :: Plone',
         'Framework :: Plone :: 5.2',
+        'Framework :: Plone :: 6.0',
+        'Framework :: Plone :: 6.1',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Operating System :: OS Independent',

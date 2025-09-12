@@ -90,12 +90,20 @@
         />
 
     <gs:registerProfile
+        name="uninstall"
+        title="MasterSelect z3cform Widget uninstall"
+        description="Uninstall MasterSelect widget"
+        directory="profiles/uninstall"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.uninstall"
+        />
+
+    <gs:registerProfile
         name="demo"
         title="MasterSelect z3cform Widget Demo"
         directory="profiles/demo"
         description="MasterSelect z3cform widget demonstration type"
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        post_handler=".setuphandlers.uninstall"
         />
 
     <utility

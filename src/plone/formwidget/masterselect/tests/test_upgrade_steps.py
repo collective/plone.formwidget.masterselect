@@ -52,6 +52,7 @@ class UpgradeTestCaseBase(unittest.TestCase):
 class Upgrade4to5TestCase(UpgradeTestCaseBase):
 
     def setUp(self):
+        self.request = self.layer['request']
         UpgradeTestCaseBase.setUp(self, '4', '5')
 
     def test_registrations(self):
@@ -81,6 +82,11 @@ class Upgrade4to5TestCase(UpgradeTestCaseBase):
         self.assertTrue(bundle.compile)
 
         self._do_upgrade_step(step)
+        try:
+            from Products.CMFPlone.resources.browser.resource import REQUEST_CACHE_KEY
+            setattr(self.request, REQUEST_CACHE_KEY, None)
+        except ImportError:
+            pass
 
         self.assertNotIn(
             'plone.formwidget.masterselect/master-compiled.css',
