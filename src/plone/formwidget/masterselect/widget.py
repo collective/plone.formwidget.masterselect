@@ -31,7 +31,7 @@ BINDERS = dict(
     vocabulary="jQuery('%(masterID)s').bindMasterSlaveVocabulary(%(json)s);",
     value="jQuery('%(masterID)s').bindMasterSlaveValue(%(json)s);",
     attr="jQuery('%(masterID)s').bindMasterSlaveAttr(%(json)s);",
-    toggle="jQuery('%(masterID)s').bindMasterSlaveToggle(%(json)s);"
+    toggle="jQuery('%(masterID)s').bindMasterSlaveToggle(%(json)s);",
 )
 
 JQUERY_ONLOAD = """\
@@ -56,16 +56,16 @@ jQuery(document).ready(function()
 
 
 def boolean_value(value):
-    return value in (1, '1', 'true', 'True', True)
+    return value in (1, "1", "true", "True", True)
 
 
 class MasterSelect(object):
-    """Methods required for widgets
-    """
+    """Methods required for widgets"""
 
     def getSlaves(self):
-        slaves = (getattr(self.field, 'slave_fields', None)
-                  or getattr(self.field.value_type, 'slave_fields', ()))
+        slaves = getattr(self.field, "slave_fields", None) or getattr(
+            self.field.value_type, "slave_fields", ()
+        )
         for slave in slaves:
             yield slave.copy()
 
@@ -76,77 +76,71 @@ class MasterSelect(object):
                 self.request.physicalPathFromURL(self.request.getURL())
             ),
         )
-        widgetURL = url + '/++widget++%s/@@masterselect-jsonvalue' % self.__name__
+        widgetURL = url + "/++widget++%s/@@masterselect-jsonvalue" % self.__name__
 
         for slave in self.getSlaves():
-            if 'slaveID' not in slave:
+            if "slaveID" not in slave:
                 # Try to get it from widget
-                widget = self.form.widgets.get(slave['name'])
-                if widget is not None and getattr(widget, 'id', None) is not None:
-                    slave['slaveID'] = '#' + widget.id
+                widget = self.form.widgets.get(slave["name"])
+                if widget is not None and getattr(widget, "id", None) is not None:
+                    slave["slaveID"] = "#" + widget.id
                 else:
                     # Try our best to create one; won't work for checkboxes, so
                     # better to provide a slaveID in the schema in that case or
                     # sometimes to increase the scope beyond the field
-                    prefix = '-'.join(self.id.split('-')[:-1])
-                    slave['slaveID'] = '#%s-%s' % (prefix, slave['name'])
+                    prefix = "-".join(self.id.split("-")[:-1])
+                    slave["slaveID"] = "#%s-%s" % (prefix, slave["name"])
 
-            slave['url'] = widgetURL
-            slave['masterID'] = slave.get(
-                'masterSelector',
-                '#' + slave.get('masterID', self.id)
+            slave["url"] = widgetURL
+            slave["masterID"] = slave.get(
+                "masterSelector", "#" + slave.get("masterID", self.id)
             )
-            slave['siblings'] = slave.get('siblings', False)
-            slave['empty_length'] = int(slave.get('empty_length', 0))
-            slave.setdefault('control_param', 'master_value')
+            slave["siblings"] = slave.get("siblings", False)
+            slave["empty_length"] = int(slave.get("empty_length", 0))
+            slave.setdefault("control_param", "master_value")
 
-            if 'hide_values' in slave:
-                values = slave['hide_values']
+            if "hide_values" in slave:
+                values = slave["hide_values"]
                 if not isinstance(values, (tuple, list)):
                     values = [values]
                 if IBool.providedBy(self.field):
                     values = [boolean_value(v) for v in values]
-                slave['values'] = values
+                slave["values"] = values
 
-            js_template = BINDERS.get(slave.get('action')) or BINDERS['toggle']
+            js_template = BINDERS.get(slave.get("action")) or BINDERS["toggle"]
 
             # Remove some things from slave we don't need
-            slave.pop('vocab_method', None)
-            slave.pop('hide_values', None)
-            slave.pop('control_param', None)
+            slave.pop("vocab_method", None)
+            slave.pop("hide_values", None)
+            slave.pop("control_param", None)
 
-            settings = {'masterID': slave['masterID'],
-                        'json': json.dumps(slave)
-                        }
+            settings = {"masterID": slave["masterID"], "json": json.dumps(slave)}
             yield js_template % settings
 
     def getInlineJS(self):
         """render javascript"""
-        return JQUERY_ONLOAD % '\n'.join(self.renderJS())
+        return JQUERY_ONLOAD % "\n".join(self.renderJS())
 
 
 @implementer(IMasterSelectWidget)
 class MasterSelectWidget(select.SelectWidget, MasterSelect):
-    """Master Select Widget
-    """
+    """Master Select Widget"""
 
-    klass = u'form-select masterselect-widget'
+    klass = "form-select masterselect-widget"
 
 
 @implementer(IMasterSelectBoolWidget)
 class MasterSelectBoolWidget(checkbox.SingleCheckBoxWidget, MasterSelect):
-    """MasterSelectBoolWidget
-    """
+    """MasterSelectBoolWidget"""
 
-    klass = u'masterselect-widget'
+    klass = "masterselect-widget"
 
 
 @implementer(IMasterSelectRadioWidget)
 class MasterSelectRadioWidget(radio.RadioWidget, MasterSelect):
-    """MasterSelectRadioWidget
-    """
+    """MasterSelectRadioWidget"""
 
-    klass = u'masterselect-widget'
+    klass = "masterselect-widget"
 
 
 @implementer(interfaces.IFieldWidget)
@@ -188,8 +182,7 @@ class MasterSelectJSONValue(BrowserView):
         # request.environ[DISABLE_TRANSFORM_REQUEST_KEY] = True
 
     def createVocabulary(self, value):
-        """Create a simple vocabulary from provided value, list or tuple
-        """
+        """Create a simple vocabulary from provided value, list or tuple"""
         terms = []
         for token in value:
             title = token
@@ -200,42 +193,43 @@ class MasterSelectJSONValue(BrowserView):
         return SimpleVocabulary(terms)
 
     def getVocabulary(self, slave, value, default=None):
-        kw = {slave['control_param']: value}
-        vocabulary = slave.get('vocab_method', None)
+        kw = {slave["control_param"]: value}
+        vocabulary = slave.get("vocab_method", None)
         if vocabulary is None:
             return default
         return vocabulary(**kw)
 
     def __call__(self):
         self.request.response.setHeader(
-            'Content-Type', 'application/json; charset=utf-8')
+            "Content-Type", "application/json; charset=utf-8"
+        )
 
         # import pdb; pdb.set_trace()
-        field = self.request['field']
-        slavename = self.request['name']
-        value = self.request['value']
+        field = self.request["field"]
+        slavename = self.request["name"]
+        value = self.request["value"]
 
         for slave in self.widget.getSlaves():
             # Loop until we find the slave we want
-            if slave['name'] != slavename:
+            if slave["name"] != slavename:
                 continue
 
-            action = slave.get('action')
-            if action not in ['vocabulary', 'value', 'attr']:
+            action = slave.get("action")
+            if action not in ["vocabulary", "value", "attr"]:
                 continue
 
             # --- VALUE -------------------------------------------------------
-            if action == 'value':
-                value = self.getVocabulary(slave, value, '')
+            if action == "value":
+                value = self.getVocabulary(slave, value, "")
                 return json.dumps(translate(value, context=self.request))
 
             # --- ATTR- -------------------------------------------------------
-            if action == 'attr':
+            if action == "attr":
                 result = self.getVocabulary(slave, value, None)
-                if isinstance(result, dict) and 'attr' in result and 'value' in result:
+                if isinstance(result, dict) and "attr" in result and "value" in result:
                     return json.dumps(result)
                 else:
-                    raise ValueError('Bad attr dictionary for %s.' % slavename)
+                    raise ValueError("Bad attr dictionary for %s." % slavename)
 
             # --- VOCABULARY --------------------------------------------------
             vocabulary = self.getVocabulary(slave, value)
@@ -243,15 +237,16 @@ class MasterSelectJSONValue(BrowserView):
             if isinstance(vocabulary, (tuple, list)):
                 vocabulary = self.createVocabulary(vocabulary)
 
-            widget = self.widget.form.widgets.get(slave['name'])
+            widget = self.widget.form.widgets.get(slave["name"])
             if widget is None:
-                raise ValueError('Can not find widget: %s' % slave['name'])
+                raise ValueError("Can not find widget: %s" % slave["name"])
 
-            if (IContextSourceBinder.providedBy(vocabulary)
-                    or IVocabularyTokenized.providedBy(vocabulary)):
+            if IContextSourceBinder.providedBy(
+                vocabulary
+            ) or IVocabularyTokenized.providedBy(vocabulary):
 
                 widget.field = copy.copy(widget.field)
-                if hasattr(widget.field, 'value_type'):
+                if hasattr(widget.field, "value_type"):
                     widget.field.value_type.vocabulary = vocabulary
                 else:
                     widget.field.vocabulary = vocabulary
@@ -259,14 +254,14 @@ class MasterSelectJSONValue(BrowserView):
                 widget.updateTerms()
                 widget.update()
                 # widget may define items as a property or as a method
-                items = widget.items if not callable(
-                    widget.items) else widget.items()
+                items = widget.items if not callable(widget.items) else widget.items()
                 # translate if possible. content can be a Message, a string, a
                 # unicode
                 for item in items:
-                    item['content'] = translate(safe_unicode(
-                        item['content']), context=self.request)
-                responseJSON = {'items': items}
+                    item["content"] = translate(
+                        safe_unicode(item["content"]), context=self.request
+                    )
+                responseJSON = {"items": items}
 
                 # disable select box if term length = 'disable_length'
                 # if len(widget.terms) == slave.get('disable_length', None):
@@ -274,5 +269,4 @@ class MasterSelectJSONValue(BrowserView):
 
                 return json.dumps(responseJSON)
 
-        raise ValueError('No such master-slave combo: %s %s' %
-                         (field, slavename))
+        raise ValueError("No such master-slave combo: %s %s" % (field, slavename))

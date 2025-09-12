@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from plone.formwidget.masterselect.testing import \
-    PLONE_FORMWIDGET_MASTERSELECT_INTEGRATION
+from plone.formwidget.masterselect.testing import PLONE_FORMWIDGET_MASTERSELECT_INTEGRATION
 from Testing import ZopeTestCase as ztc
 
 import unittest
@@ -24,9 +23,9 @@ class DecoUITestCase(unittest.TestCase):
     #    client.mouseDown(jquery=u'(".deco-button-save")[0]')
     #    client.waits.forPageLoad(timeout=u'20000')
 
-        # Edit the newly created page
-        # client.click(jquery=u'("#contentview-edit a")[0]')
-        # client.waits.forPageLoad(timeout=u'20000')
+    # Edit the newly created page
+    # client.click(jquery=u'("#contentview-edit a")[0]')
+    # client.waits.forPageLoad(timeout=u'20000')
 
 
 def test_suite():

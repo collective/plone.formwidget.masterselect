@@ -5,7 +5,6 @@ from plone.formwidget.masterselect.testing import PLONE_FORMWIDGET_MASTERSELECT_
 from Products.CMFPlone.utils import get_installer
 from Products.GenericSetup.upgrade import listUpgradeSteps
 
-
 import unittest
 
 
@@ -16,29 +15,30 @@ class TestSetup(unittest.TestCase):
 
     def setUp(self):
         """Custom shared utility setup for tests."""
-        self.portal = self.layer['portal']
-        self.installer = get_installer(self.portal, self.layer['request'])
-        self.setup = self.portal['portal_setup']
+        self.portal = self.layer["portal"]
+        self.installer = get_installer(self.portal, self.layer["request"])
+        self.setup = self.portal["portal_setup"]
 
     def test_product_installed(self):
         """Test if plone.formwidget.masterselect is installed."""
-        self.assertTrue(self.installer.is_product_installed(
-            'plone.formwidget.masterselect'))
+        self.assertTrue(
+            self.installer.is_product_installed("plone.formwidget.masterselect")
+        )
 
     def test_uninstall(self):
-        self.installer.uninstall_product('plone.formwidget.masterselect')
+        self.installer.uninstall_product("plone.formwidget.masterselect")
         self.assertFalse(
-            self.installer.is_product_installed('plone.formwidget.masterselect')
+            self.installer.is_product_installed("plone.formwidget.masterselect")
         )
 
     def _get_profiles_upgrades(self):
         """Return the list o profiles of upgrade steps."""
         profiles_upgrades = []
-        profile_id = 'plone.formwidget.masterselect:default'
-        upgrades = listUpgradeSteps(self.setup, profile_id, '')
+        profile_id = "plone.formwidget.masterselect:default"
+        upgrades = listUpgradeSteps(self.setup, profile_id, "")
         for upgrade in upgrades:
             for step in upgrade:
-                import_profile = step['step'].import_profile
+                import_profile = step["step"].import_profile
                 if import_profile:
                     profiles_upgrades.append(import_profile)
         return profiles_upgrades
@@ -52,6 +52,6 @@ class TestSetup(unittest.TestCase):
             self.assertIn(
                 profile,
                 hidden_profiles,
-                '{0} not in plone.formwidget.masterselect.setuphandlers.'
-                'HiddenProfiles.getNonInstallableProfiles'.format(profile),
+                "{0} not in plone.formwidget.masterselect.setuphandlers."
+                "HiddenProfiles.getNonInstallableProfiles".format(profile),
             )

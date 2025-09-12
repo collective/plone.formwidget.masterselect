@@ -9,8 +9,8 @@ class HiddenProfiles(object):
     def getNonInstallableProfiles(self):
         """Hide uninstall profile from site-creation and quickinstaller."""
         return [
-            'plone.formwidget.masterselect:uninstall',
-            'plone.formwidget.masterselect.upgrades:5',
+            "plone.formwidget.masterselect:uninstall",
+            "plone.formwidget.masterselect.upgrades:5",
         ]
 
 
