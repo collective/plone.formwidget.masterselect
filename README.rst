@@ -18,7 +18,7 @@ Feel free to help edit this document to help explain things better!
 Example
 =======
 
-For more complex examples see ``demo.py`` in pacakge directory.::
+For more complex examples see ``demo.py`` in package directory.::
 
     from zope import schema
     from plone.supermodel import model
