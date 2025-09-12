@@ -1,8 +1,9 @@
-.. image:: https://travis-ci.org/collective/plone.formwidget.masterselect.svg
-    :target: https://travis-ci.org/collective/plone.formwidget.masterselect
+.. image:: https://github.com/collective/plone.formwidget.masterselect/actions/workflows/main.yml/badge.svg
+    :target: https://github.com/collective/plone.formwidget.masterselect/actions/workflows/main.yml
 
-.. image:: https://coveralls.io/repos/collective/plone.formwidget.masterselect/badge.png
-    :target: https://coveralls.io/r/collective/plone.formwidget.masterselect
+.. image:: https://coveralls.io/repos/github/collective/plone.formwidget.masterselect/badge.svg
+    :target: https://coveralls.io/github/collective/plone.formwidget.masterselect
+
 
 MasterSelectWidget
 ==================
