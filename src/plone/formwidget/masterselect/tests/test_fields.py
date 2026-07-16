@@ -1,4 +1,5 @@
 """Tests of package fields."""
+
 from plone.formwidget.masterselect import MasterSelectBoolField
 from plone.formwidget.masterselect import MasterSelectField
 from plone.formwidget.masterselect import MasterSelectRadioField

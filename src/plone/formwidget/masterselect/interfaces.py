@@ -7,24 +7,22 @@ from zope.schema.interfaces import IField
 
 
 class IMasterSelectWidget(Interface):
-    """Marker interface for the multi select widget.
-    """
+    """Marker interface for the multi select widget."""
 
 
 class IMasterSelectBoolWidget(Interface):
-    """Marker interface for the multi select widget.
-    """
+    """Marker interface for the multi select widget."""
 
 
 class IMasterSelectRadioWidget(Interface):
-    """Marker interface for the radio button widget.
-    """
+    """Marker interface for the radio button widget."""
 
 
 class IMasterSelectField(IField):
     """
     Additional Fields for MasterSelect
     """
+
     slave_fields = Tuple(
         title=_(
             "title_slave_fields",

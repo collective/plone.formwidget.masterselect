@@ -15,25 +15,29 @@ class MasterSelectLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         import plone.formwidget.masterselect
+
         xmlconfig.file(
-            'testing.zcml',
-            plone.formwidget.masterselect,
-            context=configurationContext
+            "testing.zcml", plone.formwidget.masterselect, context=configurationContext
         )
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'plone.formwidget.masterselect:demo')
+        applyProfile(portal, "plone.formwidget.masterselect:demo")
 
 
 PLONE_FORMWIDGET_MASTERSELECT = MasterSelectLayer()
 PLONE_FORMWIDGET_MASTERSELECT_INTEGRATION = IntegrationTesting(
-    name='plone.formwidget.masterselect:Integration',
-    bases=(PLONE_FORMWIDGET_MASTERSELECT, ))
+    name="plone.formwidget.masterselect:Integration",
+    bases=(PLONE_FORMWIDGET_MASTERSELECT,),
+)
 PLONE_FORMWIDGET_MASTERSELECT_FUNCTIONAL = FunctionalTesting(
-    name='plone.formwidget.masterselect:Functional',
-    bases=(PLONE_FORMWIDGET_MASTERSELECT, ))
+    name="plone.formwidget.masterselect:Functional",
+    bases=(PLONE_FORMWIDGET_MASTERSELECT,),
+)
 PLONE_FORMWIDGET_MASTERSELECT_ROBOT = FunctionalTesting(
-    name='plone.formwidget.masterselect:Robot',
-    bases=(REMOTE_LIBRARY_BUNDLE_FIXTURE,
-           PLONE_FORMWIDGET_MASTERSELECT,
-           z2.ZSERVER_FIXTURE))
+    name="plone.formwidget.masterselect:Robot",
+    bases=(
+        REMOTE_LIBRARY_BUNDLE_FIXTURE,
+        PLONE_FORMWIDGET_MASTERSELECT,
+        z2.ZSERVER_FIXTURE,
+    ),
+)

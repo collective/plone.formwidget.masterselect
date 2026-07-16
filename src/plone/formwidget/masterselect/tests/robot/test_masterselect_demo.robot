@@ -89,7 +89,7 @@ I am on the masterselect demo page as a ${role}
     Go To    ${PLONE_URL}/++add++plone.formwidget.masterselect.demo
 
 I select '${value}' on master field '${id}'
-    Select From List    css=#${id}    ${value}
+    Select From List By Value    css=#${id}    ${value}
 
 Slave field '${id}' should be visible
     Element should become visible    css=#formfield-form-widgets-slaveField${id}
@@ -146,6 +146,6 @@ Add available language
     Enable Autologin As  Manager
     Set Autologin Username  ${TEST_USER_NAME}
     Go To  ${PLONE_URL}/@@language-controlpanel
-    Select From List  css=#form-widgets-available_languages-from  ${available_language}
+    Select From List By Value  css=#form-widgets-available_languages-from  ${available_language}
     Click Button  name=from2toButton
     Click Button  css=#form-buttons-save

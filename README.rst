@@ -1,8 +1,9 @@
-.. image:: https://travis-ci.org/collective/plone.formwidget.masterselect.svg
-    :target: https://travis-ci.org/collective/plone.formwidget.masterselect
+.. image:: https://github.com/collective/plone.formwidget.masterselect/actions/workflows/main.yml/badge.svg
+    :target: https://github.com/collective/plone.formwidget.masterselect/actions/workflows/main.yml
 
-.. image:: https://coveralls.io/repos/collective/plone.formwidget.masterselect/badge.png
-    :target: https://coveralls.io/r/collective/plone.formwidget.masterselect
+.. image:: https://coveralls.io/repos/github/collective/plone.formwidget.masterselect/badge.svg
+    :target: https://coveralls.io/github/collective/plone.formwidget.masterselect
+
 
 MasterSelectWidget
 ==================
@@ -18,7 +19,7 @@ Feel free to help edit this document to help explain things better!
 Example
 =======
 
-For more complex examples see ``demo.py`` in pacakge directory.::
+For more complex examples see ``demo.py`` in package directory.::
 
     from zope import schema
     from plone.supermodel import model
