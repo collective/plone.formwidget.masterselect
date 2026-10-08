@@ -40,10 +40,9 @@ all: buildout
 help:
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
 
-<<<<<<< HEAD
 .installed.cfg: bin/buildout *.cfg
 	bin/buildout
-=======
+
 .python-version:  ## Setups pyenv version
 	@pyenv local `pyenv versions |grep "  $(python)" |tail -1 |xargs`
 	@echo "Local pyenv version is `cat .python-version`"
@@ -54,7 +53,6 @@ bin/buildout: .python-version  ## Setups environment
 	./bin/pip install --upgrade pip
 	./bin/pip install -r requirements-$(plone).txt
 	@echo "$(plone)" > .plone-version
->>>>>>> 261a812 (Update buildout to Plone 6.1)
 
 .PHONY: setup
 setup: oneof-plone backup cleanall bin/buildout restore  ## Setups environment

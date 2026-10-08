@@ -135,6 +135,17 @@ class MasterSelectBoolWidget(checkbox.SingleCheckBoxWidget, MasterSelect):
 
     klass = "masterselect-widget"
 
+    @property
+    def label(self):
+        # the single checkbox renders the title itself
+        if self.mode == "input":
+            return ""
+        return getattr(self, "_label", "")
+
+    @label.setter
+    def label(self, value):
+        self._label = value
+
 
 @implementer(IMasterSelectRadioWidget)
 class MasterSelectRadioWidget(radio.RadioWidget, MasterSelect):
