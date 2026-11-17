@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import find_packages
+from setuptools import find_namespace_packages
 from setuptools import setup
 
 
-version = "3.0.1.dev0"
+version = "4.0.0.dev0"
 
 long_description = "\n\n".join(
     [
@@ -24,12 +24,8 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: 5.2",
-        "Framework :: Plone :: 6.0",
-        "Framework :: Plone :: 6.1",
+        "Framework :: Plone :: 6.2",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
@@ -39,7 +35,6 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: JavaScript",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.8",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Software Development :: Widget Sets",
     ],
@@ -48,11 +43,11 @@ setup(
     author_email="nrgaway@yahoo.com",
     url="https://github.com/collective/plone.formwidget.masterselect",
     license="GPL",
-    packages=find_packages("src", exclude=["ez_setup"]),
-    namespace_packages=["plone", "plone.formwidget"],
+    packages=find_namespace_packages("src", include=["plone.*"]),
     package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
+    python_requires=">=3.10",
     install_requires=[
         "plone.supermodel",
         "plone.z3cform",

@@ -1,11 +1,13 @@
 Changelog
 =========
 
-3.0.1 (unreleased)
+4.0.0 (unreleased)
 ------------------
 
 - Plone6 compatibility.
   [cekk]
+
+- Switched to PEP 420 native namespace packages. [chris-adam]
 
 
 3.0.0 (2024-06-05)
